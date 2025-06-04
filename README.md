@@ -1,5 +1,6 @@
 # forksilly.doc
 *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*
+*手机上用sillytavern很麻烦，别的类似项目或多或少表现得和ST不一样（不是说不好，其它项目的功能非常丰富，很好玩，只是不适合我），于是干脆让AI写了一个*
 
 此仓库存放ForkSilly的文档和源码，使用前请先阅读[注意事项](#注意事项)
 
@@ -56,6 +57,15 @@ gradlew assembleRelease（切换到Android目录执行）
 * 请在用户管理中添加你的自设（必须选择头像，否则无法保存）
 
 *以上注意事项均是特性，不是bug;不要问能不能改，请阅读本文档第一条的内容*
+
+## 下载
+
+<p align="left">
+  <a href="https://github.com/fatsnk/forksilly.doc/releases/latest">
+    <img src="https://img.shields.io/badge/📥 下载最新版本-blue?style=for-the-badge" alt="下载按钮">
+  </a>
+</p>
+
 
 ## 使用技巧
 
