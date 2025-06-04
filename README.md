@@ -1,7 +1,7 @@
 # forksilly.doc
 *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*
 
-此仓库存放ForkSilly的文档和源码，使用前请先阅读[注意事项](##注意事项)
+此仓库存放ForkSilly的文档和源码，使用前请先阅读[注意事项](#注意事项)
 
 <img src="./images/characters.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/forksilly酱.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
 
