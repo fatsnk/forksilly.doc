@@ -34,14 +34,14 @@ ForkSilly: *一个react native/expo项目，主要用于Android。理论上也�
 This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).  
 See the [LICENSE](./LICENSE) file for details.
 
-## 打包命令
+## 打包
 
-源码以zip格式上传。
-如果你想自己打包APK，可使用以下命令（需先配置Android开发环境和Java开发环境）：
+源码以zip格式上传于release。
+如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
 ```
 npx expo prebuild --platform android --clean
 npx expo run:android（模拟器调试）
-gradlew assembleRelease（切换到Android目录执行）
+gradlew assembleRelease（切换到Android目录打包）
 ```
 
 ## 注意事项
