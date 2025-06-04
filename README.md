@@ -1,5 +1,9 @@
 # forksilly.doc
-此仓库存放ForkSilly的文档和源码，使用前请先阅读`注意事项`
+*一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*
+
+此仓库存放ForkSilly的文档和源码，使用前请先阅读[注意事项](##注意事项)
+
+<img src="./images/characters.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/forksilly酱.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
 
 * **该项目为自用分享，不接受任何功能申请或答疑，使用上有问题请先参考本文档，如果无法解决或让你感到体验不好，可以去使用sillytavern项目或其它酒馆类似物，也可以自行修改代码**
   * *99.9%的代码由AI生成，你提需求我也做不出来（*
