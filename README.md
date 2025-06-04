@@ -1,3 +1,4 @@
+<img src="./images/giveup.jpg"/>
 # forksilly.doc
 *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*
 <p><em>手机上用sillytavern很麻烦，别的类似项目又或多或少表现得和ST不一样（不是说不好，其它项目的功能非常丰富，很好玩，只是不适合我），于是干脆让AI写了一个</em></p>
