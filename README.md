@@ -33,7 +33,7 @@ See the [LICENSE](./LICENSE) file for details.
 如果你想自己打包APK，可使用以下命令（需先配置Android开发环境和Java开发环境）：
 ```
 npx expo prebuild --platform android --clean
-npx expo run:android`（模拟器调试）
+npx expo run:android（模拟器调试）
 gradlew assembleRelease（切换到Android目录执行）
 ```
 
