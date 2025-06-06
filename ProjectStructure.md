@@ -26,10 +26,10 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 *   **`assets/`**:
     *   `default-avatar.png`: 聊天界面中使用的默认头像图片。
 *   **`components/`**: 可重用的 UI 组件。
-    *   `ChatDialog.tsx`: **聊天对话气泡组件**。负责展示单条聊天消息（用户或 AI），处理不同的消息状态（如加载中、错误），并支持流式响应的"打字机"渲染效果。**集成了主题设置，可以动态调整消息字体和字号，并支持“卡片式主题”（AI回复消息在固定高度可滚动容器内显示）。** **更新：`Message` 类型导入路径已更新为 `../types/message`。** **新增：为首条AI问候语（如果存在可替换项）添加了左右切换按钮，允许用户在 `first_mes` 和 `alternate_greetings` 之间切换。** **新增：为用户和AI消息添加了编辑、复制、分支对话的操作按钮。移除了自动滚动到底部的逻辑，替换为手动触发的“滚动到底部”按钮。** **更新：现在会从 `ThemeContext` 获取自定义标签规则，并在渲染消息前调用 `customTagService.applyCustomTags` 处理消息文本中的自定义HTML标签。**
+    *   `ChatDialog.tsx`: **聊天对话气泡组件**。负责展示单条聊天消息（用户或 AI），处理不同的消息状态（如加载中、错误），并支持流式响应的"打字机"渲染效果。**集成了主题设置，可以动态调整消息字体和字号，并支持“卡片式主题”（AI回复消息在固定高度可滚动容器内显示）。** **更新：`Message` 类型导入路径已更新为 `../types/message`。** **新增：为首条AI问候语（如果存在可替换项）添加了左右切换按钮，允许用户在 `first_mes` 和 `alternate_greetings` 之间切换。** **更新：现在会从 `ThemeContext` 获取自定义标签规则，并在渲染消息前调用 `customTagService.applyCustomTags` 处理消息文本中的自定义HTML标签。**
     *   `ChatHistoryModal.tsx`: **(新增) 聊天历史记录模态框组件**。从 `ChatScreen` 分离出来，负责展示聊天历史列表，并提供加载、创建新聊天、删除、下载/分享、重命名以及**导入聊天记录**的功能。
     *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮（通过操作菜单）。实现了输入框高度动态调整、发送时按钮状态切换（发送图标/加载中/取消）、发送后高度重置等功能。**更新：`onSendMessage` prop 类型已更新以支持异步操作。** **新增：在其操作菜单中集成了 `PresetEntriesToggleModal`，允许用户快速切换当前激活预设中提示词条目的启用状态，并通过 `ChatContext` 的 `updateActivePresetOrderEntry` 函数同步这些更改。**
-    *   `EditMessageModal.tsx`: **(新增) 编辑消息模态框组件**。提供一个模态框界面，用于编辑指定消息的文本内容，包含保存和取消操作。
+    *   `EditMessageModal.tsx`: **编辑消息模态框组件**。提供一个模态框界面，用于编辑指定消息的文本内容，包含保存和取消操作。
     *   `PresetEntriesToggleModal.tsx`: **(新增) 预设条目开关模态框组件**。允许用户查看当前激活预设中的提示词条目列表（基于 `prompt_order` 排序和启用状态），并快速切换各个条目的启用/禁用状态。更改会通过回调函数通知 `ChatContext`。
     *   `SideMenu.tsx`: **侧边栏菜单组件**。提供导航到不同屏幕（如设置、角色管理、全局世界书管理、**主题与样式设置**、**全局正则脚本管理**）的入口。**其导航功能通过消费独立的 `NavigationContext` 实现。**
     *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览）。
@@ -82,11 +82,11 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 *   **`types/`**: TypeScript 类型定义文件。
     *   `app.ts`: 应用级别的通用类型定义。
     *   `chat.ts`: 定义聊天相关的核心数据结构，如 `ChatMessage` (单条消息)、`ChatHeader` (聊天元数据)，与 `chatStorage.ts` 中使用的格式对应。**更新：`ChatMessage` 接口已添加 `placeholderReplacements` 字段，用于存储占位符的实际替换值。**
-    *   `message.ts`: **(新增)** 定义了 `Message` 接口，该接口原先在 `ChatScreen.tsx` 中定义，用于聊天界面的消息对象和应用内部状态。将其移至此处是为了解决 `ChatScreen.tsx` 和 `SillyTavernContextBuilder.ts` 之间的循环依赖问题。`Message` 接口也包含了 `placeholderReplacements` 字段。
+    *   `message.ts`: 定义了 `Message` 接口，该接口原先在 `ChatScreen.tsx` 中定义，用于聊天界面的消息对象和应用内部状态。将其移至此处是为了解决 `ChatScreen.tsx` 和 `SillyTavernContextBuilder.ts` 之间的循环依赖问题。`Message` 接口也包含了 `placeholderReplacements` 字段。
     *   `persona.ts`: 定义用户角色（Persona）相关的数据结构，如 `PersonaDescription` (角色描述和扮演身份) 和 `PersonasData` (存储用户角色数据的完整结构)。
     *   `react-native-event-source.d.ts`: 为使用的某个事件源库（可能用于流式处理）提供 TypeScript 类型声明。
     *   `png-modules.d.ts`: 为PNG处理相关模块提供类型声明。
     *   `regex.ts`: 定义与正则表达式脚本相关的数据结构，如 `RegexScript` (单个脚本的结构定义，包含ID、名称、查找模式、替换字符串、启用状态、作用范围、目标消息、深度限制等)。
-    *   `apiTypes.ts`: **(新增)** 定义API配置相关的数据结构，如 `ApiConfig` (单个API配置的完整信息，包括URL、密钥、模型、高级参数、API类型等) 和 `ApiType` (API类型枚举，如OpenAI兼容、Gemini等)。
+    *   `apiTypes.ts`: 定义API配置相关的数据结构，如 `ApiConfig` (单个API配置的完整信息，包括URL、密钥、模型、高级参数、API类型等) 和 `ApiType` (API类型枚举，如OpenAI兼容、Gemini等)。
     *   `customTag.ts`: **(新增)** 定义自定义标签渲染规则相关的数据结构，如 `CustomTagRule` (单个规则的定义，包括标签名、渲染方式、启用状态等) 和 `CustomTagSettings`。
 *   **`utils/`**: (暂时为空目录) 可能包含通用的辅助函数或工具类。
