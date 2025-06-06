@@ -40,6 +40,7 @@ See the [LICENSE](./LICENSE) file for details.
 
 源码以zip格式上传于release。
 项目结构：[项目结构文档](ProjectStructure.md)
+
 如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
 ```
 npx expo prebuild --platform android --clean
