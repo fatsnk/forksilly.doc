@@ -100,3 +100,5 @@ gradlew assembleRelease（切换到Android目录打包）
 - {{roll:1d100}}
 
 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
+
+想使用不安全的https连接？请参考：[服务器自签证书教程](服务器自签证书教程.md)
