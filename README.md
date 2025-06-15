@@ -100,6 +100,8 @@ gradlew assembleRelease（切换到Android目录打包）
 - {{roll:10000}}
 - {{roll:1d100}}
 
+更多占位符请查阅[项目结构文档](ProjectStructure.md)
+
 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
 
 支持http和https形式的API baseurl 连接你的AI和Stable Diffusion<br>
