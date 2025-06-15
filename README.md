@@ -104,3 +104,5 @@ gradlew assembleRelease（切换到Android目录打包）
 
 支持http和https形式的API baseurl 连接你的AI和Stable Diffusion<br>
 想使用不受信任的https连接或内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)
+
+在⚙️中的存储管理中可管理你的文件，并可在`Gallery/角色名`目录下导入表情包和角色图片，以支持让AI以HTML格式插入聊天中，使用相对路径，例如`<img src="gallery/我的角色/微笑.png" alt="微笑表情">`
