@@ -1,9 +1,8 @@
 <img src="./images/giveup.jpg"/>
 
 # forksilly.doc
-此仓库主要存放ForkSilly的文档（本文档），
-顺带发布ForkSilly的apk安装包和源码（上传于[📦release](https://github.com/fatsnk/forksilly.doc/releases/latest)
-），使用前请先阅读[注意事项](#注意事项)
+此仓库主要存放ForkSilly的文档，
+顺带发布ForkSilly的apk安装包和源码（仓库文件仅文档，不含源码，源码上传于[📦releases](https://github.com/fatsnk/forksilly.doc/releases/latest)），使用前请先阅读[注意事项](#注意事项)
 
 ## 概要
 ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*
