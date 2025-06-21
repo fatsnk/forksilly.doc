@@ -90,9 +90,11 @@ gradlew assembleRelease（切换到Android目录打包）
 文字颜色：
 <font color='red'>①这是红色字。</font>
 <span style="color: black;">这是黑的文字</span>
-插入网络图片：
+插入web图片：
 ![](https://files.catbox.moe/y6uo86.jpg)
 <img src="https://files.catbox.moe/y6uo86.jpg" alt="公司Logo">
+使用在存储管理中上传的图片：
+<img src="gallery/我的角色/微笑.png" alt="微笑表情">
 ...
 ```
 
