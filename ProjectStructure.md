@@ -11,7 +11,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 
 *   `.gitignore`: 定义 Git 版本控制忽略的文件和目录。
 *   `app.json`: Expo 应用配置文件，包含应用名称、版本、图标、启动画面、平台特定配置等元数据。
-*   `App.tsx`: **应用主入口文件**。设置导航结构，集成各个屏幕（如聊天、设置、角色管理、**存储管理**），是整个应用的根组件。**通过将导航上下文 (`NavigationContext`) 提取到独立的 `src/navigation/NavigationService.ts` 模块，解决了组件间的循环依赖问题。**集成了 `ChatProvider` 以提供全局聊天状态管理，并集成了 `ThemeProvider` 以提供全局主题和样式管理。**导航函数已使用 `useCallback` 优化以稳定引用。**
+*   `App.tsx`: **应用主入口文件**。设置导航结构，集成各个屏幕。**更新：通过引入 `ModalProvider` 和一个 `GlobalModals` 组件，将所有全局模态框（如聊天历史、设置、预览等）的渲染和状态管理提升至顶层，解决了 `z-index` 冲突并统一了动画体验。**集成了 `ChatProvider` 以提供全局聊天状态管理，并集成了 `ThemeProvider` 以提供全局主题和样式管理。
 *   `index.ts`: React Native 应用注册入口点。包含重要的polyfill导入，如`react-native-get-random-values`，以提供全局`crypto.getRandomValues`实现。
 *   `package.json`: Node.js 项目清单文件。定义项目依赖、脚本（如启动、构建）和基本信息。**（注：近期为实现复制到剪贴板功能，添加了 `expo-clipboard` 依赖。）**
 *   `package-lock.json`: 精确锁定项目依赖的版本，确保环境一致性。
@@ -27,41 +27,44 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `default-avatar.png`: 聊天界面中使用的默认头像图片。
 *   **`components/`**: 可重用的 UI 组件。
     *   `ChatDialog.tsx`: **聊天对话气泡组件**。负责展示单条聊天消息（用户或 AI），处理不同的消息状态（如加载中、错误）。**更新：流式响应的“打字机”渲染效果已通过新的 `useStreamAnimator` Hook 进行重构，以单一动画循环处理数据流，解决了渲染冲突问题，实现了更平滑、可靠的动画效果。** **集成了主题设置，可以动态调整消息字体和字号，并支持“卡片式主题”（AI回复消息在固定高度可滚动容器内显示）。** **更新：`Message` 类型导入路径已更新为 `../types/message`。** **为首条AI问候语（如果存在可替换项）添加了左右切换按钮，允许用户在 `first_mes` 和 `alternate_greetings` 之间切换。** **更新：现在会从 `ThemeContext` 获取自定义标签规则，并在渲染消息前调用 `customTagService.applyCustomTags` 处理消息文本中的自定义HTML标签。**
-    *   `ChatHistoryModal.tsx`: **(新增) 聊天历史记录模态框组件**。从 `ChatScreen` 分离出来，负责展示聊天历史列表，并提供加载、创建新聊天、删除、下载/分享、重命名以及**导入聊天记录**的功能。
-    *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮（通过操作菜单）。实现了输入框高度动态调整、发送时按钮状态切换（发送图标/加载中/取消）、发送后高度重置等功能。**更新：`onSendMessage` prop 类型已更新以支持异步操作。** **新增：在其操作菜单中集成了 `PresetEntriesToggleModal`，允许用户快速切换当前激活预设中提示词条目的启用状态，并通过 `ChatContext` 的 `updateActivePresetOrderEntry` 函数同步这些更改。**
-    *   `EditMessageModal.tsx`: **编辑消息模态框组件**。提供一个模态框界面，用于编辑指定消息的文本内容，包含保存和取消操作。
-    *   `PresetEntriesToggleModal.tsx`: **(新增) 预设条目开关模态框组件**。允许用户查看当前激活预设中的提示词条目列表（基于 `prompt_order` 排序和启用状态），并快速切换各个条目的启用/禁用状态。更改会通过回调函数通知 `ChatContext`。
+    *   `CharacterBubbleSelector.tsx`: **(新增) 角色气泡选择器组件**。提供一个全屏的、带有动画效果的角色选择界面。当触发时，会从屏幕上的一个点“吹出”多个角色气泡，每个气泡代表一个可选角色。气泡会以动画形式移动到屏幕的随机位置，并带有轻微的漂浮和旋转效果。**优化：通过智能分布算法，确保生成的气泡目标位置不会相互重叠，并且会避开顶部的状态栏和底部的输入框区域，以提供清晰的视觉效果。**
+    *   `AnimatedChatHistoryModal.tsx`: **(重构) 动画聊天历史记录模态框**。这是 `ChatHistoryModal` 的重构版本，现已整合到全局模态框管理系统中。它使用 `useAnimatedModal` Hook 实现统一的打开/关闭动画，并通过 `ModalContext` 接收数据和可见性状态。**优化：内部通过 `isModalContentVisible` 状态确保关闭动画完整播放；在重命名模式下，通过 `translateY` 动画值实现模态框上移，为键盘腾出空间，提升了交互体验。**
+    *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮。**更新：修复了快速、反复点击输入框和 `+` 按钮时因UI状态冲突导致的崩溃问题，通过简化状态管理，统一使用 `isActionMenuVisible` 单一状态控制菜单，并在输入框聚焦时强制隐藏菜单，从根本上避免了竞态条件。**
+    *   `EditMessageModal.tsx`: **(重构) 编辑消息模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
+    *   `PresetEntriesToggleModal.tsx`: **(重构) 预设条目开关模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**修复：重构了 JSX 结构，将关闭事件仅绑定在背景遮罩层，并为 `FlatList` 的容器添加 `pointerEvents="box-none"`，解决了列表滚动与模态框关闭手势冲突导致的意外关闭和崩溃问题。**
     *   `SideMenu.tsx`: **侧边栏菜单组件**。提供导航到不同屏幕（如设置、角色管理、全局世界书管理、**主题与样式设置**、**全局正则脚本管理**）的入口。**其导航功能通过消费独立的 `NavigationContext` 实现。**
     *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览、**触发更多设置模态框（包含存储管理入口）**）。
-    *   `MoreSettingsModal.tsx`: **(新增) 更多设置模态框组件**。从 `ChatScreen` 的 `TopBar` 中的齿轮图标触发，提供如“存储管理”等高级功能的入口。
-    *   `SaveAsModal.tsx`: **保存对话框组件**。用于在保存预设或其他内容时提供名称输入和确认操作的界面。
-    *   `PromptPreviewModal.tsx`: **提示词预览模态框组件**。用于在聊天界面显示当前根据角色、预设和聊天历史构建的完整提示词内容，方便调试。**更新：现在也被 `StorageManagementScreen` 用于预览文本文件内容。**
-    *   `ImagePreviewModal.tsx`: **(新增/重大修改) 图片预览模态框组件**。原用于角色管理界面头像预览，现重构为通用的图片预览组件。移除手势控制，改为使用按钮进行操作：支持图片切换（上一张/下一张及页码显示）、缩放（放大/缩小及比例显示）和平移（上/下/左/右移动及居中，仅在图片放大后可用）。通过点击背景或明确的关闭按钮来关闭。
+    *   `MoreSettingsModal.tsx`: **(重构) 更多设置模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
+    *   `SaveAsModal.tsx`: **(重构) 保存对话框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
+    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：为解决预览大文件时UI假死的问题，实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容，保证了应用的响应性。**
+    *   `ImagePreviewModal.tsx`: **(重构) 图片预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。功能保持不变，支持按钮控制的切换、缩放、平移。
 *   **`context/`**: React Context API 相关文件。
+    *   `ModalContext.tsx`: **(新增) 全局模态框上下文**。定义并提供 `ModalProvider`，用于在应用顶层集中管理所有全局模态框的状态。它维护着当前哪个模态框可见 (`visibleModal`) 以及该模态框所需的全部 `props` (`modalProps`)，并提供 `showModal(modal, props)` 和 `hideModal()` 方法供应用内任何组件调用，以实现全局、统一的模态框控制。
     *   `ChatContext.tsx`: **聊天状态上下文**。定义并提供全局聊天状态（如消息列表、当前选择的角色、激活的预设、当前聊天文件等），用于在不同屏幕间持久化聊天状态。**更新：`Message` 类型导入路径已更新为 `../types/message`。** **新增：添加了 `updateActivePresetOrderEntry` 函数，用于处理从 `PresetEntriesToggleModal` 发起的对预设中提示词条目启用状态的更新，确保更改反映在 `activePreset.prompt_order` 和 `activePreset.rawData.prompt_order` 中。注意：虽然 `ChatContext` 本身未直接添加文生图特定状态，但其管理的 `messages` 数组中的每个 `Message` 对象现在可以包含 `imageGenerationRequest` 字段，从而间接持有文生图相关数据。**
     *   `ThemeContext.tsx`: **主题状态上下文**。定义并提供全局主题设置（字体家族、字体大小、活动主题），并负责从 `AsyncStorage` 加载和保存设置，确保主题持久化。**更新：现在也负责加载和提供用户定义的自定义HTML标签渲染规则 (`customTagRules`) 及其加载状态 (`isLoadingCustomTags`)。**
 *   **`constants/`**: (暂时为空目录) 可能用于存放应用中使用的常量值（如 API 默认值、样式常量等）。
 *   **`core/`**: (暂时为空目录) 可能用于存放应用的核心业务逻辑或框架性代码。
 *   **`hooks/`**: 存放自定义 React Hooks，封装可重用的状态逻辑。
-    *   `useMessageActions.ts`: **(新增) 消息操作 Hook**。封装了与聊天消息相关的操作逻辑，如编辑消息、复制消息文本、创建对话分支和删除消息。此 Hook 被 `ChatScreen.tsx` 用来管理这些功能的状态和处理函数，以减少主屏幕组件的复杂性。
+    *   `useAnimatedModal.ts`: **(新增) 动画模态框 Hook**。为全局模态框提供统一的动画逻辑。它接收一个 `visible` 布尔值，并使用 `react-native-reanimated` 的 `useSharedValue`、`withTiming` 和 `withSpring`，返回可直接应用于视图的动画样式（`backdropAnimatedStyle` 用于背景遮罩，`modalAnimatedStyle` 用于模态框内容），实现了平滑的淡入/缩放动画效果。
+    *   `useMessageActions.ts`: **(重构) 消息操作 Hook**。封装了与聊天消息相关的操作逻辑。**更新：此 Hook 已重构，不再管理本地模态框状态。对于需要弹出模态框的操作（如编辑消息），它现在直接调用 `useModal()` 上下文中的 `showModal('editMessage', ...)` 方法来触发全局模态框。**
     *   `useStreamAnimator.ts`: **(新增) 流式动画 Hook**。封装了流式文本的“打字机”渲染逻辑。它使用 `requestAnimationFrame` 来创建一个单一、连续的动画循环，平滑地处理传入的文本数据块，并能根据数据积压情况自适应调整渲染速度，从而避免了多个动画实例冲突导致的渲染混乱问题。
 *   **`navigation/`**: 应用的导航相关服务。
     *   `NavigationService.ts`: **导航服务模块**。定义并导出 `NavigationContext`，供应用内各组件消费以实现导航功能。此模块的引入旨在解决组件间的循环依赖问题。
 *   **`screens/`**: 应用的主要屏幕或页面。
-    *   `CharacterManagementScreen.tsx`: **角色管理屏幕**。**优化了加载性能，采用三列网格（类相册）布局展示角色卡（显示矩形头像和文件名），在用户点击具体角色卡进行聊天或编辑时才按需解析角色数据。** 用于展示、导入、管理角色卡片。提供角色卡的下载功能（将角色卡保存到设备公共图片目录中），并在完成后显示成功提示和文件位置。编辑操作通过导航到`CharacterEditScreen`进行。**导航到聊天界面时默认传递 `startNewChat: false` 以加载最近聊天记录。** 修复了从编辑界面返回时的刷新和导航问题。**更新：长按角色头像会调用 `ImagePreviewModal` 显示头像大图。**
+    *   `CharacterManagementScreen.tsx`: **角色管理屏幕**。**优化了加载性能，采用三列网格（类相册）布局展示角色卡。** **重构：长按角色头像预览大图的功能，现已改为调用 `useModal().showModal('imagePreview', ...)` 来触发全局的 `ImagePreviewModal`，不再管理本地模态框状态。**
     *   `CharacterEditScreen.tsx`: **角色编辑屏幕**。提供一个全屏界面，用于编辑角色卡的各项详细信息。包含多个标签页：角色信息（名称、描述、性格等）、世界书（**优化了UI，支持逐条添加、编辑、删除条目，包括关键词、内容、启用状态、插入位置和深度等详细设置，角色和位置选择使用更友好的控件；条目内容现在可以折叠以优化显示空间**）、以及高级设置（系统提示、历史指令、标签、**正则表达式脚本**等）。**“可替换的开幕剧情”编辑区已优化为可独立编辑、添加和删除的列表项。** 编辑完成后，用户可以保存更改或取消。
-    *   `ChatScreen.tsx`: **主聊天屏幕**。这是应用的核心界面，集成了 `TopBar`, `ChatDialog`, `ChatInput`, `SideMenu`, `EditMessageModal` 以及重构后的 `ChatHistoryModal`。**使用全局 `ChatContext` 管理核心聊天状态（消息、选定角色、激活预设、当前聊天文件），以确保在屏幕切换时状态能够持久化。** 负责处理用户输入、调用 `openAIService` 发送请求（支持流式和非流式）、接收和渲染 AI 回复。**更新：流式数据处理逻辑已简化，不再包含复杂的动画队列和渲染控制。现在，它只负责将接收到的数据块更新到消息状态中，渲染工作完全交由 `ChatDialog` 组件处理。** **功能：支持通过模态框编辑用户和AI消息；支持复制消息内容到剪贴板 (依赖 `expo-clipboard`)；支持从任意消息点创建新的聊天分支，并将历史记录复制到新分支，提示用户是否切换。部分消息操作逻辑（如编辑、复制、分支、删除消息）已通过 `src/hooks/useMessageActions.ts` Hook 进行管理。** 调用 `chatStorage` 保存/加载聊天记录（**切换角色时优先加载最近聊天记录，若无则创建新聊天并自动添加角色首条问候语 `first_mes`；首条问候语支持通过按钮切换 `alternate_greetings`**）、管理发送按钮状态、**接收并使用从角色管理界面传递的角色和预设信息**、**集成提示词预览功能**等复杂交互逻辑。**聊天历史记录模态框 (`ChatHistoryModal`) 现在支持删除、下载/分享、重命名和导入聊天文件。** **优化了导航逻辑及 `useEffect` 依赖，修复了与 `navigation.setParams` 相关的潜在无限渲染循环和状态管理问题，提升了角色切换和新聊天创建的稳定性。** **更新：`Message` 类型定义已移至 `src/types/message.ts` 以解决循环依赖。在用户发送消息、接收AI回复以及保存编辑后的消息时，会调用 `placeholderService` 处理文本中的占位符，确保聊天记录中存储的是已替换占位符的文本，不再存储原始占位符或替换记录到消息对象中。** **更新：在发送API请求和预览提示词前，会根据设置调用 `promptPostProcessorService` 对提示词进行后处理。** **更新：现在会从 `apiConfigService.ts` 获取用户设置的默认API配置 (`activeApiConfig` state)，并在发送消息、预览提示词等操作时使用此配置。当API设置在设置屏幕被更改后（通过 `globalSettingsLastUpdated` 或导航参数 `apiSettingsUpdated` 感知），会自动重新加载最新的默认API配置，确保聊天功能使用正确的用户设定。**
+    *   `ChatScreen.tsx`: **主聊天屏幕**。**重构：所有原先在此屏幕中通过 `useState` 管理的模态框（如聊天历史、更多设置、提示词预览、预设条目开关）均已移除。现在，此屏幕通过引入 `useModal()` Hook，调用 `showModal(modalType, props)` 来触发对应的全局模态框，不再负责模态框的渲染和状态管理。** 例如，`handleViewChatHistory` 函数现在会异步加载数据，然后调用 `showModal('chatHistory', { ... })` 将最新数据传递给全局模态框，解决了数据陈旧问题。
     *   `SettingsScreen.tsx`: **设置屏幕**。允许用户配置连接 AI 服务所需的参数，如 API 地址、密钥、模型名称、温度、Top-K、最大生成长度、上下文窗口大小等。提供参数启用/禁用开关和 API 连接测试功能。**“提示词后处理设置”选项卡允许用户选择不同的提示词处理模式（原始、严格、半严格）以及是否合并连续系统消息。** **更新：此屏幕已进行重大重构以支持多API配置管理**。用户现在可以：查看和选择已保存的API配置列表（通过Picker组件）；添加新的API配置；编辑所选配置的详细信息（名称、URL、密钥、模型、API类型、流式开关、高级参数、提示词后处理模式等）；删除配置；以及将某个配置设为默认。表单内容会根据当前选择的配置动态更新。新增了API类型选择器，为未来支持不同类型的API（如Gemini，目前为占位符）做好准备。配置数据通过新的 `apiConfigService.ts` 进行持久化存储和管理。
     *   `PersonaManagementScreen.tsx`: **用户管理屏幕**。包括用户名称、头像和一段提示词，与角色管理一样会提供给提示词构建和占位符替换（{{user}}），插入预设中personaDescription所在的位置
     *   `ThemeSettingsScreen.tsx`: **主题与样式设置屏幕**。允许用户自定义聊天界面的字体家族、字体大小，并选择不同的聊天主题（如默认主题、卡片式主题）。**新增“自定义标签”选项卡，允许用户创建和管理自定义HTML标签的渲染规则（例如，将 `<mytag>content</mytag>` 渲染为Markdown、代码块、可折叠区域或隐藏内容），规则通过 `customTagService` 进行持久化存储。**设置会实时保存并应用于聊天界面。
-    *   `PresetManagementScreen.tsx`: **预设管理屏幕**。用于列出、创建、删除和编辑预设。
+    *   `PresetManagementScreen.tsx`: **预设管理屏幕**。用于列出、创建、删除和编辑预设。**重构：移除了本地的 `SaveAsModal` 渲染和状态管理，改为通过 `useModal().showModal('saveAs', ...)` 触发全局保存模态框。**
     *   `PresetEditScreen.tsx`: **预设编辑屏幕**。提供全面的预设编辑功能，包括模型与参数编辑区域(A)、提示词管理区域(B)和提示词列表区域(C)。支持编辑预设名称和模型参数；管理、添加、编辑和排序提示词；通过拖拽重新排序提示词；启用/禁用单个提示词；支持新增自定义提示词(生成UUID)；将所有更改保存到预设文件中。解决了多个UI问题，包括`VirtualizedList`嵌套`ScrollView`警告、拖拽体验优化和元素显示问题。角色选择使用单选按钮。
     *   `GlobalWorldBookManagementScreen.tsx`: **全局世界书管理屏幕**。用于列出、导入、启用/禁用和删除全局世界书。编辑操作通过导航到 `GlobalWorldBookEditScreen` 进行。**修复了从编辑界面返回时的导航和刷新参数处理问题，提升了导航稳定性。**
     *   `GlobalWorldBookEditScreen.tsx`: **全局世界书编辑屏幕**。提供全面的全局世界书编辑功能，界面和功能参照角色世界书编辑界面。用户可以编辑世界书的元数据（名称、描述）以及详细编辑其条目。条目编辑支持：名称、内容、主要/次要关键词、启用/禁用状态、固定状态、概率、扫描深度、角色（通过模拟单选按钮选择）、位置（通过下拉选择器选择，并用文字标签显示）、注入深度（条件显示）和插入顺序。
     *   `GlobalRegexManagementScreen.tsx`: **全局正则表达式脚本管理屏幕**。用于列出、导入、导出、编辑和删除全局正则表达式脚本。编辑操作通过导航到 `GlobalRegexEditScreen` 进行。
     *   `GlobalRegexEditScreen.tsx`: **全局正则表达式脚本编辑屏幕**。提供全面的脚本编辑功能，包括脚本名称、查找模式、替换字符串、启用/禁用状态、作用范围（Markdown/Prompt）、目标消息（用户/AI）和深度限制等。
     *   `PersonaManagementScreen.tsx`: **用户角色管理屏幕**。允许用户创建、编辑（内联）、删除、导入/导出和设置默认的用户扮演角色（Persona）。每个角色包含名称、头像、描述提示词和扮演身份（System/User/Assistant）。选择的默认角色及其头像会影响聊天界面的用户头像显示和提示词构建。
-    *   `StorageManagementScreen.tsx`: **(新增) 存储管理屏幕**。提供应用内文件管理界面，允许用户浏览和操作应用专属文档目录 (`FileSystem.documentDirectory`) 及缓存目录 (`FileSystem.cacheDirectory`) 中的内容。主要特性包括：文件和文件夹列表显示、进入子目录、返回上级目录、多选操作（删除、全选/取消全选）、文件导入 (通过 `expo-document-picker`)、文件/目录导出 (单个文件直接分享，多个项目或目录则压缩为 ZIP 包后分享，使用 `react-native-zip-archive`)。对于缓存目录，还提供显示总大小、文件数量以及一键清空缓存的功能。此屏幕通过 `ChatScreen` 中的 `MoreSettingsModal` 进行导航，并依赖 `storageManagementService.ts` 处理所有底层文件操作。包含返回按钮以导航回前一屏幕。**更新：点击文件项会触发预览功能。图片文件使用 `ImagePreviewModal` (支持按钮控制的切换、缩放、平移)；文本文件 (如 .txt, .json, .log 等) 使用 `PromptPreviewModal` 显示内容。长按文件项仍为选择文件。**
+    *   `StorageManagementScreen.tsx`: **(新增) 存储管理屏幕**。提供应用内文件管理界面。**重构：文件预览功能（图片和文本）不再使用本地模态框，而是通过 `useModal().showModal(...)` 触发全局的 `ImagePreviewModal` 或 `PromptPreviewModal`。优化：为解决预览大文件时的UI假死问题，实现了懒加载。触发预览时会先显示一个加载中模态框，后台读取文件成功后再用实际内容更新模态框。**
     *   `TextToImageSettingsScreen.tsx`: **(新增) 文生图设置屏幕**。允许用户配置文生图相关的设置，例如管理文生图API配置、管理文生图预设，以及设置文生图的触发机制（如自定义触发标签、图片插入位置等）。依赖 `imageGenerationPresetService.ts` 和 `imageTriggerService.ts`。
 *   **`services/`**: 封装应用的业务逻辑、数据处理和与外部服务的交互。
     *   `apiConfigService.ts`: 负责管理多个AI聊天API配置的CRUD操作和持久化存储（使用AsyncStorage）。提供获取默认配置、添加、更新、删除配置等功能。
