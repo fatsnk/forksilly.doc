@@ -20,7 +20,7 @@ version test1.25
 ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*</br> ~~*中文名*：*“傻叉”*（~~
 <p><em>手机上用sillytavern很麻烦，别的类似项目又或多或少表现得和ST不一样（不是说不好，其它项目的功能非常丰富，很好玩，只是不适合我），于是干脆让AI写了一个</em></p>
 
-<img src="./images/characters1.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
+<img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
 <details>
   <summary>查看预览</summary>
 <img src="./images/txt2imgdemo.gif" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
