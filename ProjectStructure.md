@@ -28,6 +28,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 *   **`components/`**: 可重用的 UI 组件。
     *   `ChatDialog.tsx`: **聊天对话气泡组件**。负责展示单条聊天消息（用户或 AI），处理不同的消息状态（如加载中、错误）。**更新：流式响应的“打字机”渲染效果已通过新的 `useStreamAnimator` Hook 进行重构，以单一动画循环处理数据流，解决了渲染冲突问题，实现了更平滑、可靠的动画效果。** **集成了主题设置，可以动态调整消息字体和字号，并支持“卡片式主题”（AI回复消息在固定高度可滚动容器内显示）。** **更新：`Message` 类型导入路径已更新为 `../types/message`。** **为首条AI问候语（如果存在可替换项）添加了左右切换按钮，允许用户在 `first_mes` 和 `alternate_greetings` 之间切换。** **更新：现在会从 `ThemeContext` 获取自定义标签规则，并在渲染消息前调用 `customTagService.applyCustomTags` 处理消息文本中的自定义HTML标签。**
     *   `CharacterBubbleSelector.tsx`: **(新增) 角色气泡选择器组件**。提供一个全屏的、带有动画效果的角色选择界面。当触发时，会从屏幕上的一个点“吹出”多个角色气泡，每个气泡代表一个可选角色。气泡会以动画形式移动到屏幕的随机位置，并带有轻微的漂浮和旋转效果。**优化：通过智能分布算法，确保生成的气泡目标位置不会相互重叠，并且会避开顶部的状态栏和底部的输入框区域，以提供清晰的视觉效果。**
+    *   `SimpleBrowserModal.tsx`: 使用webview的简单浏览器。
     *   `AnimatedChatHistoryModal.tsx`: **(重构) 动画聊天历史记录模态框**。这是 `ChatHistoryModal` 的重构版本，现已整合到全局模态框管理系统中。它使用 `useAnimatedModal` Hook 实现统一的打开/关闭动画，并通过 `ModalContext` 接收数据和可见性状态。**优化：内部通过 `isModalContentVisible` 状态确保关闭动画完整播放；在重命名模式下，通过 `translateY` 动画值实现模态框上移，为键盘腾出空间，提升了交互体验。**
     *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮。**更新：修复了快速、反复点击输入框和 `+` 按钮时因UI状态冲突导致的崩溃问题，通过简化状态管理，统一使用 `isActionMenuVisible` 单一状态控制菜单，并在输入框聚焦时强制隐藏菜单，从根本上避免了竞态条件。**
     *   `EditMessageModal.tsx`: **(重构) 编辑消息模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
@@ -36,7 +37,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览、**触发更多设置模态框（包含存储管理入口）**）。
     *   `MoreSettingsModal.tsx`: **(重构) 更多设置模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
     *   `SaveAsModal.tsx`: **(重构) 保存对话框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
-    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：为解决预览大文件时UI假死的问题，实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容，保证了应用的响应性。**
+    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容，保证了应用的响应性。**
     *   `ImagePreviewModal.tsx`: **(重构) 图片预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。功能保持不变，支持按钮控制的切换、缩放、平移。
 *   **`context/`**: React Context API 相关文件。
     *   `ModalContext.tsx`: **(新增) 全局模态框上下文**。定义并提供 `ModalProvider`，用于在应用顶层集中管理所有全局模态框的状态。它维护着当前哪个模态框可见 (`visibleModal`) 以及该模态框所需的全部 `props` (`modalProps`)，并提供 `showModal(modal, props)` 和 `hideModal()` 方法供应用内任何组件调用，以实现全局、统一的模态框控制。
@@ -49,7 +50,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `useAnimatedModal.ts`: **(新增) 动画模态框 Hook**。为全局模态框提供统一的动画逻辑。它接收一个 `visible` 布尔值，并使用 `react-native-reanimated` 的 `useSharedValue`、`withTiming` 和 `withSpring`，返回可直接应用于视图的动画样式（`backdropAnimatedStyle` 用于背景遮罩，`modalAnimatedStyle` 用于模态框内容），实现了平滑的淡入/缩放动画效果。
     *   `useMessageActions.ts`: **(重构) 消息操作 Hook**。封装了与聊天消息相关的操作逻辑。**更新：此 Hook 已重构，不再管理本地模态框状态。对于需要弹出模态框的操作（如编辑消息），它现在直接调用 `useModal()` 上下文中的 `showModal('editMessage', ...)` 方法来触发全局模态框。**
     *   `useSlideUpModal.ts`: **(新增) 向上弹出模态框动画 Hook**。为预设条目开关等模态框提供从底部向上滑入的动画效果。使用 `react-native-reanimated` 的 `useSharedValue`、`withTiming` 和 `withSpring` 实现平滑的向上滑动动画，支持背景遮罩的透明度变化和模态框的垂直位移动画，适用于需要从屏幕底部弹出的模态框组件。
-    *   `useStreamAnimator.ts`: **(修复) 流式动画 Hook**。实现"打字机"效果，使用react-native-reanimated进行优化，支持自适应速度调整和平滑渲染。
+    *   `useStreamAnimator.ts`: **(修复) 流式动画 Hook**。支持自适应速度调整。
 *   **`navigation/`**: 应用的导航相关服务。
     *   `NavigationService.ts`: **导航服务模块**。定义并导出 `NavigationContext`，供应用内各组件消费以实现导航功能。此模块的引入旨在解决组件间的循环依赖问题。
 *   **`screens/`**: 应用的主要屏幕或页面。
@@ -115,4 +116,5 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `png-modules.d.ts`: 为PNG处理相关模块提供类型声明。
     *   `react-native-event-source.d.ts`: 为使用的某个事件源库（可能用于流式处理）提供 TypeScript 类型声明。
     *   `regex.ts`: 定义与正则表达式脚本相关的数据结构，如 `RegexScript` (单个脚本的结构定义，包含ID、名称、查找模式、替换字符串、启用状态、作用范围、目标消息、深度限制等)。
-*   **`utils/`**: (暂时为空目录) 可能包含通用的辅助函数或工具类。
+*   **`utils/`**: 包含通用的辅助函数或工具类。
+    *   `textUtils.ts`: 字数统计函数，应用于消息编辑框和提示词预览框。
