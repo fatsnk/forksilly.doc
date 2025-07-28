@@ -9,7 +9,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 
 ### 根目录
 
-*   `.gitignore`: 定义 Git 版本控制忽略的文件和目录。
+*   `.gitignore`: 定义 Git 版本控制忽略的文件和目录（实际并未使用，项目未使用GitHub管理）。
 *   `app.json`: Expo 应用配置文件，包含应用名称、版本、图标、启动画面、平台特定配置等元数据。
 *   `App.tsx`: **应用主入口文件**。设置导航结构，集成各个屏幕。**更新：通过引入 `ModalProvider` 和一个 `GlobalModals` 组件，将所有全局模态框（如聊天历史、设置、预览等）的渲染和状态管理提升至顶层，解决了 `z-index` 冲突并统一了动画体验。**集成了 `ChatProvider` 以提供全局聊天状态管理，并集成了 `ThemeProvider` 以提供全局主题和样式管理。
 *   `index.ts`: React Native 应用注册入口点。包含重要的polyfill导入，如`react-native-get-random-values`，以提供全局`crypto.getRandomValues`实现。
