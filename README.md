@@ -29,7 +29,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。理论上也�
 
 <img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
 <details>
-  <summary>查看预览</summary>
+  <summary>其它预览</summary>
 <img src="./images/txt2imgdemo.gif" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
 </details>
 
@@ -46,7 +46,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。理论上也�
 + 可用OpenAI兼容格式API，以及Gemini的OpenAI兼容接口，支持Google AI studio的API key，提示词后处理选严格。（Gemini专用格式不支持，建议通过轮询项目或自建中转/反代转为OpenAI兼容格式）
 + 通过存储管理，用户可以导出应用内的所有内容，并可自行删除缓存（请谨慎操作）
 + 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击⚙️图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。
-  * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`。流式开启时有时候可能无法触发，可点击🖼手动生成。
+  * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🖼手动生成。
   * 可在存储管理的gallery目录中找到聊天中生成的图片
 - 不支持快速回复和快速回复脚本
 - 不支持tts(语音)
@@ -77,6 +77,7 @@ gradlew assembleRelease（切换到Android目录打包）
 ）**
 - API设置、主题设置中的文本输入框修改数值或文本后，需点击虚拟键盘上的确认键（回车键的位置），或点击一下其它输入框，然后点击保存才能生效
 - **在角色编辑界面修改了角色信息后，需重新在角色管理界面选择角色进入聊天，若直接返回聊天，当前角色的信息仍是旧的**
+- 更换角色图片时，如果仍显示旧图片，是缓存问题，重启应用即可。
 - **预设、世界书、正则等导入时，如果无法导入，请不要在文件选择器的“最近”等地方选择，请点击弹出的选择器（你手机系统自带的文件管理）侧边栏的`文件管理`或“你的手机名称”的项目，又或者选择第三方文件管理，从设备目录中选择要导入的文件；也可以尝试在存储管理中导入预设**
   * 通常，Discord中下载的文件会保存在“download”目录，QQ下载并手动保存的文件（注意保存到手机后才能看到！只在QQ里点击下载是看不到的！）通常在`download/QQ`目录下
   * 如果仍有问题，建议安装mt管理器，导入时从侧边栏选择mt管理器的图标用mt管理器选择文件导入
@@ -86,7 +87,7 @@ gradlew assembleRelease（切换到Android目录打包）
 - **如果你发现看不到AI回复的消息或消息不完整，请点击编辑按钮或检查你的预设，将自定义标签添加到主题与样式设置中的自定义标签中（例如`<content>、<statusblock>、<status>、<statusbar>`等，添加时不要填写尖括号`<>`），选择渲染为原始内容即可**
 - 如果消息超出了消息气泡、代码块中文本显示不全，请到主题设置中调整聊天气泡高度和代码块高度。默认主题的设置也会影响卡片主题。
 - 角色的**首条消息**会将原始占位符例如`{{user}}`和`{{char}}`等直接显示出来，这是特性不是bug（仅显示，发送给AI的请求仍会替换为相应的名字。可以点击右上角的预览提示词查看确认）；强制替换：点击✏️编辑消息，然后直接点击保存，占位符会被替换为实际的内容，替换后不可逆；也可使用正则处理显示。
-- 目前API参数中的最大上下文窗口是无效的，如果因楼层太高上下文太长导致你使用的模型返回错误，请使用消息框右下角的删除或分支功能减少几楼，然后总结重开。
+- 目前API参数中的最大上下文窗口是无效的，如果因楼层太高上下文太长导致你使用的模型返回错误，请使用消息框右下角的删除或分支功能减少几楼，也可以使用正则隐藏楼层，然后总结重开。
 - 聊天输入框可能会被手机屏幕底部的手势辅助线顶起。只能通过关闭手势辅助线（小白条）解决。
 - 不要启用空正则，角色会爆炸（
 - 谨慎使用形如`/[\s\S]*?<\/thinking>/gm`的正则表达式来修改显示，否则极有可能导致UI卡顿，建议使用更安全的表达式例如`/<thinking>(?:(?!<thinking>)[\s\S])*?<\/thinking>/gm`；如果突然发现操作有迟滞感，尝试检查全局正则。
@@ -105,7 +106,6 @@ gradlew assembleRelease（切换到Android目录打包）
 
 ## 兼容性指引
 
-本项目在同类项目中不是最好看的，但一定是最兼容sillytavern的（
 * 角色卡、预设：forksilly ⇌ sillytavern 可直接在相应的界面导出，并直接在sillytavern中使用，反之亦然；所有内容均与st中的对应。（角色备注会被忽略；“提示词覆盖”设置中的主要提示词`main`如果不为空，会替换掉预设中main条目的内容，jailbreak/post-history instructions的内容则始终使用预设中的内容，角色卡中的对应内容会被忽略；不支持变量占位符）
 * 全局世界书、全局正则：forksilly ⇌ sillytavern 同上，所有参数和实际表现均与st相同。部分sillytavern的高级参数可能不适用，但不影响互相导入。
 * 角色世界书：随角色卡一起导入，导出角色时也会包含在角色卡中。可单独导出角色世界书，并可直接导入到sillytavern。不能直接在forksilly应用中将额外的世界书文件导入到角色信息中，只能编辑、添加条目。如需将单独的世界书附加到角色卡，请使用[OcO萌/AI角色卡编辑器：CharacterEditor](https://ce.ooc.moe/zh-CN)，或直接在sillytavern中操作。
