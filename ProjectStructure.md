@@ -9,7 +9,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 
 ### 根目录
 
-*   `.gitignore`: 定义 Git 版本控制忽略的文件和目录（实际并未使用，项目未使用GitHub管理）。
+*   `.gitignore`: 定义 Git 版本控制忽略的文件和目录（并未使用，项目未使用GitHub管理）。
 *   `app.json`: Expo 应用配置文件，包含应用名称、版本、图标、启动画面、平台特定配置等元数据。
 *   `App.tsx`: **应用主入口文件**。设置导航结构，集成各个屏幕。**更新：通过引入 `ModalProvider` 和一个 `GlobalModals` 组件，将所有全局模态框（如聊天历史、设置、预览等）的渲染和状态管理提升至顶层，解决了 `z-index` 冲突并统一了动画体验。**集成了 `ChatProvider` 以提供全局聊天状态管理，并集成了 `ThemeProvider` 以提供全局主题和样式管理。
 *   `index.ts`: React Native 应用注册入口点。包含重要的polyfill导入，如`react-native-get-random-values`，以提供全局`crypto.getRandomValues`实现。
@@ -30,6 +30,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `CharacterBubbleSelector.tsx`: **(新增) 角色气泡选择器组件**。提供一个全屏的、带有动画效果的角色选择界面。当触发时，会从屏幕上的一个点“吹出”多个角色气泡，每个气泡代表一个可选角色。气泡会以动画形式移动到屏幕的随机位置，并带有轻微的漂浮和旋转效果。**优化：通过智能分布算法，确保生成的气泡目标位置不会相互重叠，并且会避开顶部的状态栏和底部的输入框区域，以提供清晰的视觉效果。**
     *   `SimpleBrowserModal.tsx`: 使用webview的简单浏览器。
     *   `AnimatedChatHistoryModal.tsx`: **(重构) 动画聊天历史记录模态框**。这是 `ChatHistoryModal` 的重构版本，现已整合到全局模态框管理系统中。它使用 `useAnimatedModal` Hook 实现统一的打开/关闭动画，并通过 `ModalContext` 接收数据和可见性状态。**优化：内部通过 `isModalContentVisible` 状态确保关闭动画完整播放；在重命名模式下，通过 `translateY` 动画值实现模态框上移，为键盘腾出空间，提升了交互体验。**
+    *   `AnimatedScreenView.tsx`: 提供屏幕导航时的过渡动画。
     *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮。**更新：修复了快速、反复点击输入框和 `+` 按钮时因UI状态冲突导致的崩溃问题，通过简化状态管理，统一使用 `isActionMenuVisible` 单一状态控制菜单，并在输入框聚焦时强制隐藏菜单，从根本上避免了竞态条件。**
     *   `EditMessageModal.tsx`: **(重构) 编辑消息模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
     *   `PresetEntriesToggleModal.tsx`: **(重构) 预设条目开关模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**修复：重构了 JSX 结构，将关闭事件仅绑定在背景遮罩层，并为 `FlatList` 的容器添加 `pointerEvents="box-none"`，解决了列表滚动与模态框关闭手势冲突导致的意外关闭和崩溃问题。**
@@ -37,7 +38,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览、**触发更多设置模态框（包含存储管理入口）**）。
     *   `MoreSettingsModal.tsx`: **(重构) 更多设置模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
     *   `SaveAsModal.tsx`: **(重构) 保存对话框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
-    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容，保证了应用的响应性。**
+    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容。**
     *   `ImagePreviewModal.tsx`: **(重构) 图片预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。功能保持不变，支持按钮控制的切换、缩放、平移。
 *   **`context/`**: React Context API 相关文件。
     *   `ModalContext.tsx`: **(新增) 全局模态框上下文**。定义并提供 `ModalProvider`，用于在应用顶层集中管理所有全局模态框的状态。它维护着当前哪个模态框可见 (`visibleModal`) 以及该模态框所需的全部 `props` (`modalProps`)，并提供 `showModal(modal, props)` 和 `hideModal()` 方法供应用内任何组件调用，以实现全局、统一的模态框控制。
