@@ -142,6 +142,9 @@ gradlew assembleRelease（切换到Android目录打包）
 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
 
 支持http和https形式的API baseurl 连接你的AI和Stable Diffusion<br>
+
+文生图配置教程：[文生图简单教程](text2img.md)
+
 想使用不受信任的https连接或frp内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)
 
 在⚙️中的存储管理中可管理你的文件，并可在`Gallery/角色名`目录下导入表情包和角色图片，以支持让AI以HTML格式插入聊天中，使用相对路径，例如`<img src="gallery/我的角色/微笑.png" alt="微笑表情">`
