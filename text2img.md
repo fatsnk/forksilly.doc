@@ -56,3 +56,7 @@ gen_image改成你自定义的触发标签。最小深度可以设置为2，为A
 删除所有img标签，避免AI学习。注意不要打开修改聊天显示的开关，否则自己也看不到图片了。
 
 <img src="./images/help/noGentag.jpg" width="200"/><img src="./images/help/noImgtag.jpg" width="200"/>
+
+9.公网使用
+
+使用frp工具将sd服务暴露到公网，或者使用zerotier等内网穿透工具将你的手机和电脑连接到同一局域网。
