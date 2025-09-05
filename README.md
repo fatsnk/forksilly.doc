@@ -8,6 +8,7 @@ version test1.26
 * 2025.09.05
   * 尝鲜版1.26.0。
   * 添加了记忆和知识库功能（使用嵌入模型生成向量）
+  * 使用op-sqlite作为本地数据库存储记忆和资料， 并使用sqlite-vec插件存储向量, an extension for RAG embeddings。
   * 添加了/hide和/unhide斜杠命令。
 
   * 使用教程：[记忆和知识库教程](https://github.com/fatsnk/forksilly.doc/blob/main/Embedding.md)
