@@ -42,7 +42,7 @@ version test1.25
 ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*</br> ~~*中文名*：*“傻叉”*（~~
 <p><em>手机上用sillytavern很麻烦，别的类似项目又或多或少表现得和ST不一样（不是说不好，其它项目的功能非常丰富，很好玩，只是不适合我），于是干脆让AI写了一个</em></p>
 
-<img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
+<img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/><img src="./images/characterDetail.jpg" width="200"/>
 <details>
   <summary>其它预览</summary>
 <img src="./images/txt2imgdemo.gif" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
@@ -63,6 +63,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。理论上也�
 + 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击⚙️图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。
   * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🖼手动生成。
   * 可在存储管理的gallery目录中找到聊天中生成的图片
++ 支持接入硅基流动和Gemini的嵌入模型。（支持记忆生成、自动保存到本地向量数据库：[记忆和知识库教程](Embedding.md)）。
 - 不支持变量、快速回复和快速回复脚本
 - 不支持tts(语音)
 - 不支持连接nai
