@@ -1,0 +1,19 @@
+{
+    "id": "9112b730-1730-41de-81d7-24011eca0854",
+    "scriptName": "上下文视觉屏蔽[20]",
+    "findRegex": "/[\\s\\S]*/gm",
+    "replaceString": "",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2,
+        6
+    ],
+    "disabled": false,
+    "markdownOnly": true,
+    "promptOnly": false,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": 20,
+    "maxDepth": null
+}

@@ -1,0 +1,19 @@
+{
+    "id": "5eece771-983c-46aa-afc9-e7e4296d113c",
+    "scriptName": "上下文限制[10]",
+    "findRegex": "/[\\s\\S]*/gm",
+    "replaceString": "",
+    "trimStrings": [],
+    "placement": [
+        1,
+        2,
+        6
+    ],
+    "disabled": true,
+    "markdownOnly": false,
+    "promptOnly": true,
+    "runOnEdit": true,
+    "substituteRegex": 0,
+    "minDepth": 10,
+    "maxDepth": null
+}
