@@ -1,6 +1,4 @@
-
-
-<img src="./images/giveup.jpg"/>
+[![Homepage](./images/giveup.jpg)](https://fatsnk.github.io/fatsnk/)
 
 <details>
   <summary>最近更新</summary>
