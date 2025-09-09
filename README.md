@@ -39,7 +39,7 @@ version test1.25
 [🎬 新手快速上手指南](moenew.md)
 
 ## 概要
-ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*</br> ~~*中文名*：*“傻叉”*（~~
+ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*</br> ~~*小孩子不懂事，写着玩的🤕* *中文名*：*“傻叉”*（~~
 <p><em>在手机上体验sillytavern很难受，于是干脆让AI写了一个</em></p>
 
 <img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/><img src="./images/characterDetail.jpg" width="200"/>
@@ -60,7 +60,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。理论上也�
 + 聊天时快速开关预设条目
 + 可用OpenAI兼容格式API，以及Gemini的OpenAI兼容接口，支持Google AI studio的API key，提示词后处理选严格。（Gemini专用格式不支持，建议通过轮询项目或自建中转/反代转为OpenAI兼容格式）
 + 通过存储管理，用户可以导出应用内的所有内容（请谨慎操作），并可自行删除缓存
-+ 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。
++ 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。[文生图简单教程](text2img.md)
   * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🎨手动生成。
   * 可在存储管理的gallery目录中找到聊天中生成的图片
 + 支持接入硅基流动和Gemini的嵌入模型。（支持记忆生成、自动保存到本地向量数据库：[记忆和知识库教程](Embedding.md)）。
