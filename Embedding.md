@@ -59,10 +59,13 @@ Gemini则请直接使用默认值（模型使用gemini-embedding-001,维度填�
 
 细节则可以自己在总结中手动添加（使用消息编辑按钮），或者维护一本世界书。
 
-<img src="./images/help/Embedding/floorId.jpg" width="400"/><img src="./images/help/Embedding/autoHideFloorRegex.jpg" width="400"/>
+<img src="./images/help/Embedding/floorId.jpg" width="400"/>
 
 本次更新也同步更新了`/hide`和`/unhide`两个ST的斜杠命令，使用方法和傻酒馆基本一致，输入/hide 楼层数 即可隐藏对应楼层，例如/hide 0表示隐藏最开始的消息；/hide 0-20 表示隐藏0-20楼的消息，隐藏的消息不会发送给LLM。
 隐藏后，消息会显示一个幽灵👻的emoji。/unhide则为取消隐藏。
+
+<img src="./images/help/Embedding/autoHideFloorRegex.jpg" width="400"/>
+
 
 也可以使用上图的全局正则来实现自动隐藏历史楼层。可以下载以下正则导入使用。
 
