@@ -29,16 +29,16 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `ChatDialog.tsx`: **聊天对话气泡组件**。负责展示单条聊天消息（用户或 AI），处理不同的消息状态（如加载中、错误）。**更新：流式响应的“打字机”渲染效果已通过新的 `useStreamAnimator` Hook 进行重构，以单一动画循环处理数据流，解决了渲染冲突问题，实现了更平滑、可靠的动画效果。** **集成了主题设置，可以动态调整消息字体和字号，并支持“卡片式主题”（AI回复消息在固定高度可滚动容器内显示）。** **更新：`Message` 类型导入路径已更新为 `../types/message`。** **为首条AI问候语（如果存在可替换项）添加了左右切换按钮，允许用户在 `first_mes` 和 `alternate_greetings` 之间切换。** **更新：现在会从 `ThemeContext` 获取自定义标签规则，并在渲染消息前调用 `customTagService.applyCustomTags` 处理消息文本中的自定义HTML标签。**
     *   `CharacterBubbleSelector.tsx`: **(新增) 角色气泡选择器组件**。提供一个全屏的、带有动画效果的角色选择界面。当触发时，会从屏幕上的一个点“吹出”多个角色气泡，每个气泡代表一个可选角色。气泡会以动画形式移动到屏幕的随机位置，并带有轻微的漂浮和旋转效果。**优化：通过智能分布算法，确保生成的气泡目标位置不会相互重叠，并且会避开顶部的状态栏和底部的输入框区域，以提供清晰的视觉效果。**
     *   `SimpleBrowserModal.tsx`: 使用webview的简单浏览器。
-    *   `AnimatedChatHistoryModal.tsx`: **(重构) 动画聊天历史记录模态框**。这是 `ChatHistoryModal` 的重构版本，现已整合到全局模态框管理系统中。它使用 `useAnimatedModal` Hook 实现统一的打开/关闭动画，并通过 `ModalContext` 接收数据和可见性状态。**优化：内部通过 `isModalContentVisible` 状态确保关闭动画完整播放；在重命名模式下，通过 `translateY` 动画值实现模态框上移，为键盘腾出空间，提升了交互体验。**
+    *   `AnimatedChatHistoryModal.tsx`: **(重构) 聊天历史记录模态框**。
     *   `AnimatedScreenView.tsx`: 提供屏幕导航时的过渡动画。
-    *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮。**更新：修复了快速、反复点击输入框和 `+` 按钮时因UI状态冲突导致的崩溃问题，通过简化状态管理，统一使用 `isActionMenuVisible` 单一状态控制菜单，并在输入框聚焦时强制隐藏菜单，从根本上避免了竞态条件。**
-    *   `EditMessageModal.tsx`: **(重构) 编辑消息模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
-    *   `PresetEntriesToggleModal.tsx`: **(重构) 预设条目开关模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**修复：重构了 JSX 结构，将关闭事件仅绑定在背景遮罩层，并为 `FlatList` 的容器添加 `pointerEvents="box-none"`，解决了列表滚动与模态框关闭手势冲突导致的意外关闭和崩溃问题。**
+    *   `ChatInput.tsx`: **聊天输入框组件**。提供文本输入区域、发送按钮、创建新对话按钮。**简化状态管理，统一使用 `isActionMenuVisible` 单一状态控制菜单。**
+    *   `EditMessageModal.tsx`: **编辑消息模态框**。
+    *   `PresetEntriesToggleModal.tsx`: **预设条目开关模态框**。修复：重构了 JSX 结构，将关闭事件仅绑定在背景遮罩层，并为 `FlatList` 的容器添加 `pointerEvents="box-none"`，解决了列表滚动与模态框关闭手势冲突导致的意外关闭和崩溃问题。**
     *   `SideMenu.tsx`: **侧边栏菜单组件**。提供导航到不同屏幕（如设置、角色管理、全局世界书管理、**主题与样式设置**、**全局正则脚本管理**）的入口。**其导航功能通过消费独立的 `NavigationContext` 实现。**
-    *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览、**触发更多设置模态框（包含存储管理入口）**）。
-    *   `MoreSettingsModal.tsx`: **(重构) 更多设置模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
-    *   `SaveAsModal.tsx`: **(重构) 保存对话框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
-    *   `PromptPreviewModal.tsx`: **(重构) 提示词预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。**优化：实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容。**
+    *   `TopBar.tsx`: **顶部导航栏组件**。显示当前聊天对象信息（或应用标题），包含打开侧边栏的按钮和其他操作按钮（如编辑、删除消息的触发点、提示词预览、触发更多设置模态框。
+    *   `MoreSettingsModal.tsx`: **更多设置模态框**。
+    *   `SaveAsModal.tsx`: **另存为对话框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果，并通过 `ModalContext` 进行显示/隐藏控制。
+    *   `PromptPreviewModal.tsx`: **提示词预览模态框**。优化：全屏显示，实现了懒加载。触发时会先显示一个加载指示器，然后在后台异步读取文件内容，加载完成后再更新模态框内容。
     *   `ImagePreviewModal.tsx`: **(重构) 图片预览模态框**。现已迁移至全局模态框系统，使用 `useAnimatedModal` Hook 实现标准动画效果。功能保持不变，支持按钮控制的切换、缩放、平移。
     *   `CharacterDetailModal.tsx`: **(新增) 角色详情模态框**。用于显示角色的信息。
     *   `MemoryModal.tsx`: 角色记忆模态框，管理当前角色的记忆。
@@ -54,7 +54,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `useMessageActions.ts`: **(重构) 消息操作 Hook**。封装了与聊天消息相关的操作逻辑。**更新：此 Hook 已重构，不再管理本地模态框状态。对于需要弹出模态框的操作（如编辑消息），它现在直接调用 `useModal()` 上下文中的 `showModal('editMessage', ...)` 方法来触发全局模态框。**
     *   `useSlideUpModal.ts`: **(新增) 向上弹出模态框动画 Hook**。为预设条目开关等模态框提供从底部向上滑入的动画效果。使用 `react-native-reanimated` 的 `useSharedValue`、`withTiming` 和 `withSpring` 实现平滑的向上滑动动画，支持背景遮罩的透明度变化和模态框的垂直位移动画，适用于需要从屏幕底部弹出的模态框组件。
     *   `useStreamAnimator.ts`: **(修复) 流式动画 Hook**。支持自适应速度调整。
-    *   `useBrowserStorage.ts`: **(新增) 浏览器存储 Hook**。提供一些内置浏览器使用的函数。
+    *   `useBrowserStorage.ts`: **浏览器存储 Hook**。提供一些内置浏览器使用的函数。
     *   `useSlashCommands.ts`: **(新增) 斜杠命令 Hook**。用于处理聊天输入框中的斜杠命令。
     *   `useChatScreenHandlers.ts`: **(新增) 聊天屏幕处理器 Hook**。包含 `handlePreviewPrompt` 和 `handleMemoryExtractionAndSaving` 等辅助函数。
 *   **`navigation/`**: 应用的导航相关服务。
@@ -62,8 +62,8 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 *   **`screens/`**: 应用的主要屏幕或页面。
     *   `CharacterManagementScreen.tsx`: **角色管理屏幕**。**优化了加载性能，采用三列网格（类相册）布局展示角色卡。** **重构：长按角色头像预览大图的功能，现已改为调用 `useModal().showModal('imagePreview', ...)` 来触发全局的 `ImagePreviewModal`，不再管理本地模态框状态。**
     *   `CharacterEditScreen.tsx`: **角色编辑屏幕**。提供一个全屏界面，用于编辑角色卡的各项详细信息。包含多个标签页：角色信息（名称、描述、性格等）、世界书（**优化了UI，支持逐条添加、编辑、删除条目，包括关键词、内容、启用状态、插入位置和深度等详细设置，角色和位置选择使用更友好的控件；条目内容现在可以折叠以优化显示空间**）、以及高级设置（系统提示、历史指令、标签、**正则表达式脚本**等）。**“可替换的开幕剧情”编辑区已优化为可独立编辑、添加和删除的列表项。** 编辑完成后，用户可以保存更改或取消。
-    *   `ChatScreen.tsx`: **主聊天屏幕**。**重构：所有原先在此屏幕中通过 `useState` 管理的模态框（如聊天历史、更多设置、提示词预览、预设条目开关）均已移除。现在，此屏幕通过引入 `useModal()` Hook，调用 `showModal(modalType, props)` 来触发对应的全局模态框，不再负责模态框的渲染和状态管理。** 例如，`handleViewChatHistory` 函数现在会异步加载数据，然后调用 `showModal('chatHistory', { ... })` 将最新数据传递给全局模态框，解决了数据陈旧问题。
-    *   `SettingsScreen.tsx`: **设置屏幕**。允许用户配置连接 AI 服务所需的参数，如 API 地址、密钥、模型名称、温度、Top-K、最大生成长度、上下文窗口大小等。提供参数启用/禁用开关和 API 连接测试功能。**“提示词后处理设置”选项卡允许用户选择不同的提示词处理模式（原始、严格、半严格）以及是否合并连续系统消息。** **更新：此屏幕已进行重大重构以支持多API配置管理**。用户现在可以：查看和选择已保存的API配置列表（通过Picker组件）；添加新的API配置；编辑所选配置的详细信息（名称、URL、密钥、模型、API类型、流式开关、高级参数、提示词后处理模式等）；删除配置；以及将某个配置设为默认。表单内容会根据当前选择的配置动态更新。新增了API类型选择器，为未来支持不同类型的API（如Gemini，目前为占位符）做好准备。配置数据通过新的 `apiConfigService.ts` 进行持久化存储和管理。
+    *   `ChatScreen.tsx`: **主聊天屏幕**。有chatdialog和topbar、chatinput组件。
+    *   `SettingsScreen.tsx`: **设置屏幕**。允许用户配置连接 AI 服务所需的参数，如 API 地址、密钥、模型名称、温度、Top-K、最大生成长度、上下文窗口大小等。提供参数启用/禁用开关和 API 连接测试功能。**“提示词后处理设置”选项卡允许用户选择不同的提示词处理模式（原始、严格、半严格）以及是否合并连续系统消息。** **更新：此屏幕已进行重大重构以支持多API配置管理**。用户现在可以：查看和选择已保存的API配置列表（通过Picker组件）；添加新的API配置；编辑所选配置的详细信息（名称、URL、密钥、模型、API类型、流式开关、高级参数、提示词后处理模式等）；删除配置；以及将某个配置设为默认。表单内容会根据当前选择的配置动态更新。新增了API类型选择器，为未来支持不同类型的API做好准备。配置数据通过新的 `apiConfigService.ts` 进行持久化存储和管理。
     *   `PersonaManagementScreen.tsx`: **用户管理屏幕**。包括用户名称、头像和一段提示词，与角色管理一样会提供给提示词构建和占位符替换（{{user}}），插入预设中personaDescription所在的位置
     *   `ThemeSettingsScreen.tsx`: **主题与样式设置屏幕**。允许用户自定义聊天界面的字体家族、字体大小，并选择不同的聊天主题（如默认主题、卡片式主题）。**新增“自定义标签”选项卡，允许用户创建和管理自定义HTML标签的渲染规则（例如，将 `<mytag>content</mytag>` 渲染为Markdown、代码块、可折叠区域或隐藏内容），规则通过 `customTagService` 进行持久化存储。**设置会实时保存并应用于聊天界面。
     *   `PresetManagementScreen.tsx`: **预设管理屏幕**。用于列出、创建、删除和编辑预设。**重构：移除了本地的 `SaveAsModal` 渲染和状态管理，改为通过 `useModal().showModal('saveAs', ...)` 触发全局保存模态框。**
@@ -73,7 +73,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `GlobalRegexManagementScreen.tsx`: **全局正则表达式脚本管理屏幕**。用于列出、导入、导出、编辑和删除全局正则表达式脚本。编辑操作通过导航到 `GlobalRegexEditScreen` 进行。
     *   `GlobalRegexEditScreen.tsx`: **全局正则表达式脚本编辑屏幕**。提供全面的脚本编辑功能，包括脚本名称、查找模式、替换字符串、启用/禁用状态、作用范围（Markdown/Prompt）、目标消息（用户/AI）和深度限制等。
     *   `PersonaManagementScreen.tsx`: **用户角色管理屏幕**。允许用户创建、编辑（内联）、删除、导入/导出和设置默认的用户扮演角色（Persona）。每个角色包含名称、头像、描述提示词和扮演身份（System/User/Assistant）。选择的默认角色及其头像会影响聊天界面的用户头像显示和提示词构建。
-    *   `StorageManagementScreen.tsx`: **存储管理屏幕**。提供应用内文件管理界面。**重构：文件预览功能（图片和文本）不再使用本地模态框，而是通过 `useModal().showModal(...)` 触发全局的 `ImagePreviewModal` 或 `PromptPreviewModal`。优化：为解决预览大文件时的UI假死问题，实现了懒加载。触发预览时会先显示一个加载中模态框，后台读取文件成功后再用实际内容更新模态框。**
+    *   `StorageManagementScreen.tsx`: **存储管理屏幕**。提供应用内文件管理界面。**重构：文件预览功能（图片和文本）不再使用本地模态框，而是通过 `useModal().showModal(...)` 触发全局的 `ImagePreviewModal` 或 `PromptPreviewModal`。优化：懒加载。触发预览时会先显示一个加载中模态框，后台读取文件成功后再用实际内容更新模态框。**
     *   `TextToImageSettingsScreen.tsx`: **(新增) 文生图设置屏幕**。允许用户配置文生图相关的设置，例如管理文生图API配置、管理文生图预设，以及设置文生图的触发机制（如自定义触发标签、图片插入位置等）。依赖 `imageGenerationPresetService.ts` 和 `imageTriggerService.ts`。
     *   `MemoryAndKnowledgeScreen.tsx`: **(新增) 记忆与知识库设置屏幕**。用于配置记忆和知识库的相关参数。
 *   **`services/`**: 封装应用的业务逻辑、数据处理和与外部服务的交互。
@@ -82,8 +82,8 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `chatStorage.ts`: **聊天存储服务**。使用 `expo-file-system` 实现聊天记录的本地持久化存储。将聊天消息以 JSONL 格式保存到文件中（文件名格式兼容 SillyTavern），并提供读取历史记录、列出记录文件（**确保按时间倒序排列**）、加载指定对话、**删除聊天文件、下载聊天文件（准备用于分享）、重命名聊天文件**以及**新增聊天记录导入功能 (`importChat`)，支持从用户选择的 `.jsonl` 文件导入聊天数据。**等功能。**更新：消息转换函数 (`convertScreenMessageToChatMessage`, `convertChatMessageToScreenMessage`) 已移除对 `placeholderReplacements` 字段的处理，因为该字段已从消息类型中移除。现在服务直接保存和加载消息文本。**
     *   `customTagService.ts`: **自定义标签服务**。负责管理用户自定义HTML标签渲染规则的CRUD操作（使用 AsyncStorage 持久化）和核心处理逻辑。提供 `applyCustomTags` 函数，用于根据用户定义的规则（如渲染为Markdown、代码块、折叠区域或隐藏）转换文本中的自定义标签（例如 `<mytag>content</mytag>`，支持自动补全不完整的起始标签如 `mytag>`)。
     *   `globalWorldBookService.ts`: **全局世界书服务**。负责管理全局世界书的元数据（存储在 `global_worldbooks_meta.json`）和各个世界书文件（存储在 `worlds/` 目录下）。提供列出、获取单个世界书条目（解析为 `ProcessedWorldBookEntry[]`）、更新元数据、删除世界书、导入新世界书（从用户选择的JSON文件）、保存世界书条目（将 `ProcessedWorldBookEntry[]` 转换回原始格式并写入文件）以及加载所有已启用的全局世界书条目等功能。
-    *   `imageGenerationPresetService.ts`: **(新增) 文生图预设服务**。负责文生图预设的加载、保存、创建、删除和管理。预设包含默认的文生图参数（如采样器、步数、CFG Scale等）和提示词片段（如正面、负面、前缀、后缀）。
-    *   `imageTriggerService.ts`: **(新增) 图片触发服务**。负责管理用户自定义的文生图触发机制，例如存储和检索用户设置的触发标签（如 `<gen_image>`) 和图片在消息中的插入位置（顶部/底部）。`ChatScreen` 在收到AI回复时会使用此服务来检测触发标签并提取提示词。
+    *   `imageGenerationPresetService.ts`: **文生图预设服务**。负责文生图预设的加载、保存、创建、删除和管理。预设包含默认的文生图参数（如采样器、步数、CFG Scale等）和提示词片段（如正面、负面、前缀、后缀）。
+    *   `imageTriggerService.ts`: **文生图触发服务**。负责管理用户自定义的文生图触发机制，例如存储和检索用户设置的触发标签（如 `<gen_image>`) 和图片在消息中的插入位置（顶部/底部）。`ChatScreen` 在收到AI回复时会使用此服务来检测触发标签并提取提示词。
     *   `openAIService.ts`: **OpenAI API 服务**。封装了与 OpenAI 兼容 API 的交互逻辑。支持发送**非流式**（一次性获取完整回复）和**流式**（通过 `XMLHttpRequest` 实现 SSE 接收并逐步返回数据块）请求。处理 API 配置参数（根据启用状态动态添加）、错误处理、流式数据的序列化和取消请求等。**更新：在发送请求前，会根据用户在设置中选择的模式，调用 `promptPostProcessorService` 对提示词进行后处理。`OpenAIConfig` 类型已扩展以包含后处理相关的配置项。** **更新：重构为无状态服务，不再自行管理API配置的加载和保存。其核心方法（如发送请求、测试连接、获取模型列表）现在接受一个 `ApiConfig` 对象作为参数，从而根据传入的配置（如URL、密钥、模型、高级参数）进行操作。旧的 `getConfig()` 方法已移除，配置管理由 `apiConfigService.ts` 统一处理。**
     *   `personaService.ts`: **用户角色服务**。负责管理用户扮演的角色信息（包括名称、头像、描述提示词、扮演身份）。提供加载、保存、导入、导出、增删改查以及设置默认用户角色的功能。头像图片存储在应用专属目录。
     *   `placeholderService.ts`: **占位符服务**。负责解析和替换文本中的动态占位符。目前支持：
@@ -115,8 +115,9 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `dynamicContextService.ts`: **(新增) 动态上下文服务**。负责构建动态插入到上下文中的记忆和知识库。
     *   `embeddingApiService.ts`: **(新增) 嵌入式模型API服务**。用于处理嵌入式模型的API请求。
     *   `embeddingSettingsService.ts`: **(新增) 嵌入式模型设置服务**。管理嵌入式模型API配置以及记忆与知识库的参数。
-    *   `imageGenApiConfigService.ts`: **(新增) 文生图API配置服务**。负责管理文生图API的配置文件。
+    *   `imageGenApiConfigService.ts`: **文生图API配置服务**。负责管理文生图API的配置文件。
     *   `knowledgeService.ts`: **(新增) 数据库操作服务**。封装了处理记忆和知识库相关的表的操作。
+    *   `presetVariableService.ts`: (新增) 用于预设编辑屏幕的“处理预设变量”按钮。将预设提示词中的“{{setvar}}”等占位符替换为实际的提示词。
 *   **`types/`**: TypeScript 类型定义文件。
     *   `apiTypes.ts`: 定义API配置相关的数据结构，如 `ApiConfig` (单个API配置的完整信息，包括URL、密钥、模型、高级参数、API类型等) 和 `ApiType` (API类型枚举，如OpenAI兼容、Gemini等)。
     *   `app.ts`: 应用级别的通用类型定义。
