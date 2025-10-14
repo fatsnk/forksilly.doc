@@ -27,8 +27,8 @@ class MainActivity : ReactActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     setTheme(R.style.AppTheme);
-    //super.onCreate(null)
-    super.onCreate(savedInstanceState)
+    super.onCreate(null)
+    //super.onCreate(savedInstanceState)
     //hideNavigationBar()
     window.decorView.postDelayed({
         hideNavigationBar()
