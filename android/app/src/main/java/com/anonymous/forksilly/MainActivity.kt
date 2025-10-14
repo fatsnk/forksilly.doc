@@ -10,6 +10,9 @@ import android.provider.Settings // 需要为 setting()
 import android.Manifest // 需要为 forceShow...
 import android.content.pm.PackageManager // 需要为 forceShow...
 import android.util.Log // 日志
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -23,13 +26,58 @@ class MainActivity : ReactActivity() {
   private val READ_MEDIA_IMAGES_PERMISSION_REQUEST_CODE = 101 // 保留媒体权限请求码
 
   override fun onCreate(savedInstanceState: Bundle?) {
-    // Log.d("PermissionDebug", "MainActivity onCreate: TOP OF METHOD") // 移除日志
     setTheme(R.style.AppTheme);
-    // Log.d("PermissionDebug", "MainActivity onCreate: setTheme called") // 移除日志
-    super.onCreate(null)
-    // Log.d("PermissionDebug", "MainActivity onCreate: super.onCreate called") // 移除日志
+    //super.onCreate(null)
+    super.onCreate(savedInstanceState)
+    //hideNavigationBar()
+    window.decorView.postDelayed({
+        hideNavigationBar()
+    }, 100)
     requestMediaPermissionIfNeeded() // 调用新的权限检查方法
-    // Log.d("PermissionDebug", "MainActivity onCreate: requestMediaPermissionIfNeeded called") // 移除日志
+  }
+
+  override fun onResume() {
+      super.onResume()
+      hideNavigationBar()
+  }
+
+  override fun onWindowFocusChanged(hasFocus: Boolean) {
+      super.onWindowFocusChanged(hasFocus)
+      if (hasFocus) {
+          hideNavigationBar()
+          window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+            // 当导航栏出现时（即隐藏标志被清除时）
+            if (visibility and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0) {
+                window.decorView.postDelayed({
+                    hideNavigationBar()
+                }, 2000)  // 2 秒后隐藏，可调整
+            }
+          }
+      }
+  }
+
+  private fun hideNavigationBar() {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    // Android 11 及以上
+    window.setDecorFitsSystemWindows(false)
+    window.insetsController?.let {
+        it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+        //it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        // 改用这个行为：上划直接响应系统手势
+        it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_DEFAULT
+    }
+} else {
+    // Android 10 及以下
+    @Suppress("DEPRECATION")
+    window.decorView.systemUiVisibility = (
+        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        or View.SYSTEM_UI_FLAG_FULLSCREEN
+        
+    )
+}
   }
 
   private fun requestMediaPermissionIfNeeded() {
