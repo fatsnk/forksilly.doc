@@ -41,20 +41,22 @@ class MainActivity : ReactActivity() {
       hideNavigationBar()
   }
 
-  override fun onWindowFocusChanged(hasFocus: Boolean) {
-      super.onWindowFocusChanged(hasFocus)
-      if (hasFocus) {
-          hideNavigationBar()
-          window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            // 当导航栏出现时（即隐藏标志被清除时）
-            if (visibility and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0) {
-                window.decorView.postDelayed({
-                    hideNavigationBar()
-                }, 2000)  // 2 秒后隐藏，可调整
-            }
-          }
-      }
+
+  private val uiVisibilityListener = View.OnSystemUiVisibilityChangeListener { visibility ->
+    if (visibility and View.SYSTEM_UI_FLAG_HIDE_NAVIGATION == 0) {
+        window.decorView.postDelayed({
+            hideNavigationBar()
+        }, 2000)
+    }
   }
+
+override fun onWindowFocusChanged(hasFocus: Boolean) {
+    super.onWindowFocusChanged(hasFocus)
+    if (hasFocus) {
+        hideNavigationBar()
+        window.decorView.setOnSystemUiVisibilityChangeListener(uiVisibilityListener)
+    }
+}
 
   private fun hideNavigationBar() {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
