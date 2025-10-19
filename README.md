@@ -37,7 +37,7 @@ version test1.25
 
 # forksilly.doc
 此仓库主要存放ForkSilly的文档，
-顺带发布ForkSilly的apk安装包和源码（仓库文件仅文档，不含源码，源码上传于[📦releases](https://github.com/fatsnk/forksilly.doc/releases/latest)），使用前请先阅读[注意事项](#注意事项) 。
+顺带发布ForkSilly的apk安装包和源码（repo不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/latest)获取），安装使用前请先阅读[注意事项](#注意事项) 。
 
 [🎬 新手快速上手指南](moenew.md)
 
@@ -86,8 +86,8 @@ See the [LICENSE](./LICENSE) file for details.
 如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
 ```
 npx expo prebuild --platform android --clean
-npx expo run:android（在模拟器调试）
-gradlew assembleRelease（切换到Android目录打包）
+（在模拟器调试）npx expo run:android
+（切换到Android目录打包）gradlew assembleRelease
 ```
 
 ## 注意事项
@@ -103,7 +103,7 @@ gradlew assembleRelease（切换到Android目录打包）
 - 卡片主题下，点击消息气泡右下角更多菜单的🌐图标可以显示一些带美化HTML的角色卡的美化效果。默认主题该按钮无实际作用，请不要点击；
 - 卡片主题要滑动整个消息列表，需滑动AI消息气泡外的区域（例如屏幕边缘或上下空白处），滑动消息部分仅能滚动消息本身的内容。
 - **如果你发现看不到AI回复的消息或消息不完整，请点击编辑按钮或检查你的预设，将自定义标签添加到主题与样式设置中的自定义标签中（例如`<content>、<statusblock>、<status>、<statusbar>`等，添加时不要填写尖括号`<>`），选择渲染为原始内容即可**
-- 如果消息超出了消息气泡、代码块中文本显示不全，请到主题设置中调整聊天气泡高度和代码块高度。默认主题的设置也会影响卡片主题。
+- 如果消息超出了消息气泡、代码块中文本显示不全，请到主题设置中调整聊天气泡高度和代码块高度。默认主题的部分设置也会影响卡片主题。
 - 角色的**首条消息**会将原始占位符例如`{{user}}`和`{{char}}`等直接显示出来，这是特性不是bug（仅显示，发送给AI的请求仍会替换为相应的名字。可以点击右上角的预览提示词查看确认）；强制替换：点击✏️编辑消息，然后直接点击保存，占位符会被替换为实际的内容，替换后不可逆；也可使用正则处理显示。
 - 目前API参数中的最大上下文窗口是无效的，如果因楼层太高上下文太长导致你使用的模型返回错误，请使用消息框右下角的删除或分支功能减少几楼，也可以使用正则或隐藏楼层功能（/hide命令），然后总结重开。
 
@@ -112,10 +112,10 @@ gradlew assembleRelease（切换到Android目录打包）
 - 角色名不要使用特殊符号，例如`:`
 
 *以上注意事项均是特性，不是bug;不要问能不能改，请阅读[ForkSilly介绍](#ForkSilly介绍)第一条的内容* （
-  - 已知“特性”：现在屏幕上显示的历史消息不会实时计算全局正则脚本的“最小深度”和“最大深度”，请通点击聊天历史📓按钮选择当前聊天记录来刷新。（新回复的消息会正常应用正则。该特性不影响“修改AI请求内容”设置，发送给API的提示词会立即应用正则的深度。）不鼓励依赖太多正则，瞎写的正则很容易引起回溯，造成严重性能问题；添加过多的正则脚本更容易产生问题。
+  - 已知“特性”：现在屏幕上显示的历史消息不会实时计算全局正则脚本的“最小深度”和“最大深度”，请通点击聊天历史📓按钮选择当前聊天记录来刷新。（新回复的消息会正常应用正则。该特性不影响“修改AI请求内容”设置，发送给API的提示词会立即应用正则的深度。）不建议依赖太多正则，瞎写的正则很容易引起回溯，造成严重性能问题；添加过多的正则脚本更容易产生问题。
 
 ## 下载
-
+<p>选择文件名不含src的压缩包，解压后安装APK文件。适用所有架构</p>
 <p align="left">
   <a href="https://github.com/fatsnk/forksilly.doc/releases/latest">
     <img src="https://img.shields.io/badge/📥 下载最新版本-blue?style=for-the-badge" alt="下载按钮">
