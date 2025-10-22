@@ -42,7 +42,7 @@ version test1.25
 [🎬 新手快速上手指南](moenew.md)
 
 ## 概要
-ForkSilly: *一个react native/expo项目，主要用于Android。理论上也可以打包成ipa；适用于对sillytavern有一定使用经验的用户*</br> ~~*小孩子不懂事，写着玩的🤕* *中文名*：*“傻叉”*（~~
+ForkSilly: *一个react native/expo项目，主要用于Android。适用于对sillytavern有一定使用经验的用户*</br> ~~*小孩子不懂事，写着玩的🤕* *中文名*：*“傻叉”*（~~
 <p><em>在手机上体验sillytavern很难受，于是干脆让AI写了一个</em></p>
 
 <img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/><img src="./images/characterDetail.jpg" width="200"/>
