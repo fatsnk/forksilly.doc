@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["FileprocessModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.fileprocess.FileprocessModule"]
+  }
+}
