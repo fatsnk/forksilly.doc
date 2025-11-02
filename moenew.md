@@ -73,9 +73,10 @@
 ### 3. 获取角色（Character）
 
 * 前往你知道的地方获取角色卡，比如Discord社区，或者直接在Google搜索`sillytavern Character card`，第一页会有几个分享角色卡的网站，前往下载png格式的角色卡。
-  * 或者自行创建角色：[OcO萌/AI角色卡编辑器：CharacterEditor](https://ce.ooc.moe/zh-CN)
+
 * 点击侧边菜单的 **角色列表** 。
 * 导入你下载或创建的png角色卡。
+    * 或者自行创建角色：在角色管理界面点击新建角色按钮，从零开始创建自己的角色；也可以选择从JSON文件创建角色。
 
 ---
 
