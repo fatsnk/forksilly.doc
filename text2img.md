@@ -2,7 +2,7 @@
 
 ## 免费服务Pollinations
 
-[Pollinations.AI](https://pollinations.ai/)：开源平台，提供简单易用的文本和图像生成API，无需注册或API密钥，保障用户隐私。
+[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，无需注册或API密钥，保障用户隐私。
 
 打开forksilly，点击右上角🔧，选择文生图，进入文生图设置。
 切换到`API管理`标签页，选择API类型为“Pollinations”，填写模型名称（flux或turbo等，可以点击get models查看）并保存，点击设为默认按钮。
