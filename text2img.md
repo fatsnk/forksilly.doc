@@ -1,5 +1,27 @@
 # 文生图简单教程
 
+## 免费服务Pollinations
+
+[Pollinations.AI](https://github.com/lllyasviel/stable-diffusion-webui-forge)：开源平台，提供简单易用的文本和图像生成API，无需注册或API密钥，保障用户隐私。
+
+打开forksilly，点击右上角🔧，选择文生图，进入文生图设置。
+切换到`API管理`标签页，选择API类型为“Pollinations”，填写模型名称（flux或turbo等，可以点击get models查看）并保存，点击设为默认按钮。
+
+如果需要去水印，请前往[验证页面](https://auth.pollinations.ai/) 登录你的GitHub账号，并生成API密钥，填写到文生图的APi设置中。如果没有需求，则不需要填写任何密钥。
+
+然后前往预设管理页面随便添加一个预设保存并设为默认。
+
+接下来，切换到生成设置标签页，填写你喜欢的参数，然后点击下方的保存到预设。
+注意参数以预设中保存的为准，所以建议先点击保存到当前预设，然后再点击保存到当前API设置，这里的模型（model）也会覆盖API管理中的设置。
+
+*（turbo模型似乎对非正方形比例支持较好，flux有时会拉伸图像。不过还是请自行尝试。Pollinations的图像有缓存，因此重新生成是不会改变图片的，需要手动修改种子。）*
+
+在聊天中启用文生图，请阅读后续的[通用设置](#通用设置)
+
+**建议添加一个对AI隐藏img标签的正则，** 防止AI后续生成不存在的img标签内容：[正则设置](#可选设置) 
+
+## Stable Diffusion
+
 1.部署Stable Diffusion并打开监听端口，建议使用（[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)），下载秋葉aaaki的整合包（[B站链接](https://www.bilibili.com/video/BV1rc6nYNEYo)），请参考相关教程，这里不再过多介绍。
 
 2.打开forksilly，点击右上角🔧，选择文生图，进入文生图设置。
@@ -14,6 +36,8 @@
 4.点击“生成设置”，选择刚才保存的API配置，然后在下方的生成参数中填写你的模型使用的参数，并点击“保存到当前API配置”。点击保存按钮后，界面参数可能会恢复原始值，返回重新进入该设置界面即可。你也可以在这里测试图片生成是否正常：
 
 <img src="./images/help/imggenParameter.png" width="400"/>
+
+## 通用设置
 
 5.点击`触发标签`选项卡，打开“启用触发功能”开关，然后点击保存。你也可以自行填写喜欢的触发标签，不修改则默认是"gen_image".
 
@@ -42,7 +66,7 @@
 
 <img src="./images/help/ReferenceImg.jpg" width="400"/>
 
-8.可选设置
+## 可选设置
 
 隐藏生成图片的img标签和原始文生图标签，避免影响AI回复，节省tokens。
 在全局正则中添加以下两个正则：
