@@ -5,6 +5,8 @@
 
 version test1.26
 
+* 2025.11.04
+  * test1.26.55：添加markdown表格渲染。
 * 2025.11.02
   * test1.26.51：添加免费的文生图服务pollinations.ai。
 * 2025.09.22
