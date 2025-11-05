@@ -1,3 +1,4 @@
+[react-native-html-table-renderer@1.0.0](https://github.com/fatsnk/react-native-html-table-renderer) - MIT
 [@0no-co/graphql.web@1.1.2](https://github.com/0no-co/graphql.web) - MIT
 [@ampproject/remapping@2.3.0](https://github.com/ampproject/remapping) - Apache-2.0
 [@babel/code-frame@7.10.4](https://github.com/babel/babel) - MIT
@@ -865,4 +866,5 @@
 [yargs@15.4.1](https://github.com/yargs/yargs) - MIT
 [yargs@17.7.2](https://github.com/yargs/yargs) - MIT
 [yocto-queue@0.1.0](https://github.com/sindresorhus/yocto-queue) - MIT
+
 
