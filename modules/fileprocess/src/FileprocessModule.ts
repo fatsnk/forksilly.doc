@@ -10,6 +10,7 @@ declare class FileprocessModule extends NativeModule<FileprocessModuleEvents> {
  parseCharacterCardPngAsync(filePath: string): Promise<string>;
  saveCharacterCardPngAsync(sourcePath: string, destinationPath: string, characterJson: string): Promise<void>;
  copyFileAsync(sourcePath: string, destinationPath: string): Promise<void>;
+ convertJpgToPngAsync(inputPath: string, outputPath: string): Promise<void>;
 }
 
 // This call loads the native module object from the JSI.
