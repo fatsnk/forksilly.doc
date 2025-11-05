@@ -5,6 +5,8 @@
 
 version test1.26
 
+* [有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions) 
+
 * 2025.11.04
   * test1.26.55：添加markdown表格渲染。
 * 2025.11.02
@@ -21,7 +23,7 @@ version test1.26
   * 使用教程：[记忆和知识库教程](https://github.com/fatsnk/forksilly.doc/blob/main/Embedding.md)
 
 * changelog: [其它更新](changelog.md)
-
+   
 </details>
 
 # forksilly.doc
