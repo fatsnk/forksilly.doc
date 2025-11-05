@@ -7,6 +7,8 @@ version test1.26
 
 * [有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions) 
 
+* 2025.11.05
+  * test1.26.56：角色图片可以选择jpg格式图片。
 * 2025.11.04
   * test1.26.55：添加markdown表格渲染。
 * 2025.11.02
