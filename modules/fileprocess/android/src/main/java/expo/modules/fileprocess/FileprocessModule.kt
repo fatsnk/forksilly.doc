@@ -251,6 +251,10 @@ import java.util.zip.CRC32
       }
   }
 
+  AsyncFunction("convertJpgToPngAsync") { inputPath: String, outputPath: String ->
+       convertJpgToPng(inputPath, outputPath)
+  }
+
     // Enables the module to be used as a native view. Definition components that are accepted as part of
     // the view definition: Prop, Events.
     View(FileprocessView::class) {
