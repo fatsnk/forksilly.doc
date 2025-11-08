@@ -70,18 +70,6 @@ ForkSilly包含第三方依赖，查看它们的许可详情：[LICENSE-THIRD-PA
 This project is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).  
 See the [LICENSE](./LICENSE) file for details.
 
-## 打包
-
-源码以zip格式上传于release。
-项目结构：[项目结构文档](ProjectStructure.md)
-
-如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
-```
-npx expo prebuild --platform android --clean
-（在模拟器调试）npx expo run:android
-（切换到Android目录打包）gradlew assembleRelease
-```
-
 ## 注意事项
 
 - **安装：部分品牌手机自带的文件管理器可能会阻止你安装未授权的应用或直接弹出安装失败，如果遇到这种问题，请使用[mt管理器](https://mt2.cn)或其它第三方文件管理器安装
@@ -114,6 +102,18 @@ npx expo prebuild --platform android --clean
     <img src="https://img.shields.io/badge/📥 下载最新版本-blue?style=for-the-badge" alt="下载按钮">
   </a>
 </p>
+
+## 打包
+
+源码以zip格式上传于release。
+项目结构：[项目结构文档](ProjectStructure.md)
+
+如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
+```
+npx expo prebuild --platform android --clean
+（在模拟器调试）npx expo run:android
+（切换到Android目录打包）gradlew assembleRelease
+```
 
 ## 兼容性指引
 
