@@ -39,10 +39,8 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 <p><em>在手机上体验sillytavern很难受，于是干脆让AI写了一个</em></p>
 
 <img src="./images/richtext01.gif" width="200"/><img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
-<details>
-  <summary>其它预览</summary>
-<img src="./images/characterDetail.jpg" width="200"/><img src="./images/txt2imgdemo.gif" width="200"/><img src="./images/Screenshot_2025-06-04-20-38-40-83_f9700b557c438db.jpg" width="200"/><img src="./images/chathistory.jpg" width="200"/><img src="./images/chatexample1.jpg" width="200"/><img src="./images/preset.jpg" width="200"/><img src="./images/promptpreview.jpg" width="200"/><img src="./images/regex.jpg" width="200"/><img src="./images/themes.jpg" width="200"/><img src="./images/worldbook.jpg" width="200"/>
-</details>
+
+#### 其它预览： [应用UI预览](./images/readme.md)
 
 ## ForkSilly介绍
 * **该项目为自用分享，可能无法受理功能申请或答疑，使用上有问题请先参考本项目中的文档。**
