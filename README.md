@@ -53,10 +53,11 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + 聊天中快速开关预设条目
 + 可使用任意OpenAI兼容格式的API，包括Gemini的OpenAI兼容接口，支持Google AI studio的API key，提示词后处理选“严格”。
 + 通过存储管理，用户可以导出应用内的所有内容（请谨慎操作）、管理缓存
-+ 接入免费文生图服务pollinations.ai
-+ 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。[文生图简单教程](text2img.md)
-  * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🎨手动生成。
-  * 可在存储管理的gallery目录中找到聊天中生成的图片
++ 可在聊天中使用文生图：
+  + 接入免费文生图服务pollinations.ai
+  + 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。[文生图简单教程](text2img.md)
+    * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🎨手动生成。
+    * 可在存储管理的gallery目录中找到聊天中生成的图片
 + （可选）接入硅基流动和Gemini的嵌入模型。（支持记忆生成、自动保存到本地向量数据库：[记忆和知识库教程](Embedding.md)）。
 
 - 不支持tts(文字转语音)
@@ -138,6 +139,8 @@ npx expo prebuild --platform android --clean
 ...
 ```
 
+在🔧中的存储管理中可管理你的文件，并可在`Gallery/角色名`目录下导入表情包和角色图片，以支持让AI以HTML格式插入聊天中，使用相对路径，例如`<img src="gallery/我的角色/微笑.png" alt="微笑表情">`
+
 支持roll和random占位符，例如
 - {{roll:10000}}
 - {{roll:1d100}}
@@ -146,13 +149,8 @@ npx expo prebuild --platform android --clean
 
 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
 
-支持http和https形式的API baseurl 连接你的AI和Stable Diffusion<br>
+想使用不受信任的https连接或frp内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)、[文生图简单教程](text2img.md)
 
-文生图配置教程：[文生图简单教程](text2img.md)
-
-想使用不受信任的https连接或frp内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)
-
-在🔧中的存储管理中可管理你的文件，并可在`Gallery/角色名`目录下导入表情包和角色图片，以支持让AI以HTML格式插入聊天中，使用相对路径，例如`<img src="gallery/我的角色/微笑.png" alt="微笑表情">`
 角色管理界面点击排序后默认按修改时间排序，编辑角色后，可下拉刷新以便让其显示到最前方；将角色添加到收藏，可以让ta优先显示
 
 隐藏楼层：使用斜杠命令`/hide 楼层数`手动隐藏，对应的楼层就不会发送给AI；或者在全局正则中添加一个正则匹配所有文本，例如`^([\s\S]*)$`，然后设置最小深度，例如设置最小深度2，表示隐藏倒数第2层以上的所有历史消息（即从倒数第三楼开始隐藏）。其余设置根据需要调整。
