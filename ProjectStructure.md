@@ -132,3 +132,141 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
     *   `op-sqlite.d.ts`: **(新增) op-SQLite类型定义文件**。为 op-SQLite 数据库提供 TypeScript 类型声明。
 *   **`utils/`**: 包含通用的辅助函数或工具类。
     *   `textUtils.ts`: 字数统计函数，应用于消息编辑框和提示词预览框。
+
+
+---
+#### 🤣写文档好麻烦，不写了直接放表格了（
+
+*Total : 128 files, 34481 codes, 3930 comments, 3609 blanks, all 42020 lines*
+
+|filename|language|code|comment|blank|total|
+|:----|:----|:----|:----|:----|:----|
+|App.tsx|TypeScript JSX|196|12|16|224|
+|android/app/build.gradle|Groovy|97|68|22|187|
+|android/app/src/debug/AndroidManifest.xml|XML|5|0|3|8|
+|android/app/src/main/AndroidManifest.xml|XML|27|5|1|33|
+|android/app/src/main/java/com/anonymous/forksilly/MainActivity.kt|Kotlin|105|37|19|161|
+|android/app/src/main/java/com/anonymous/forksilly/MainApplication.kt|Kotlin|43|3|12|58|
+|android/app/src/main/res/drawable/ic_launcher_background.xml|XML|6|0|0|6|
+|android/app/src/main/res/drawable/rn_edit_text_material.xml|XML|12|23|3|38|
+|android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml|XML|5|0|0|5|
+|android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml|XML|5|0|0|5|
+|android/app/src/main/res/values-night/colors.xml|XML|1|0|0|1|
+|android/app/src/main/res/values/colors.xml|XML|6|0|0|6|
+|android/app/src/main/res/values/strings.xml|XML|5|0|0|5|
+|android/app/src/main/res/values/styles.xml|XML|13|1|0|14|
+|android/app/src/main/res/xml/network_security_config.xml|XML|9|0|1|10|
+|android/build.gradle|Groovy|30|2|6|38|
+|android/gradle.properties|Properties|16|34|15|65|
+|android/gradle/wrapper/gradle-wrapper.properties|Properties|7|0|1|8|
+|android/gradlew.bat|Batch|41|32|22|95|
+|android/settings.gradle|Groovy|33|0|7|40|
+|assets/newbook.json|JSON|1|0|0|1|
+|assets/newpreset.json|JSON|248|0|0|248|
+|babel.config.js|JavaScript|9|1|1|11|
+|index.ts|TypeScript|6|4|4|14|
+|modules/fileprocess/android/build.gradle|Groovy|35|4|5|44|
+|modules/fileprocess/android/src/main/AndroidManifest.xml|XML|2|0|1|3|
+|modules/fileprocess/android/src/main/java/expo/modules/fileprocess/FileprocessModule.kt|Kotlin|189|38|43|270|
+|modules/fileprocess/android/src/main/java/expo/modules/fileprocess/FileprocessView.kt|Kotlin|21|5|5|31|
+|modules/fileprocess/android/src/main/java/expo/modules/fileprocess/ImageUtils.kt|Kotlin|16|0|4|20|
+|modules/fileprocess/expo-module.config.json|JSON|9|0|1|10|
+|modules/fileprocess/index.ts|TypeScript|3|2|1|6|
+|modules/fileprocess/ios/Fileprocess.podspec|Ruby|19|1|4|24|
+|modules/fileprocess/ios/FileprocessModule.swift|Swift|26|15|8|49|
+|modules/fileprocess/ios/FileprocessView.swift|Swift|30|2|7|39|
+|modules/fileprocess/src/Fileprocess.types.ts|TypeScript|15|0|5|20|
+|modules/fileprocess/src/FileprocessModule.ts|TypeScript|13|1|4|18|
+|modules/fileprocess/src/FileprocessModule.web.ts|TypeScript|15|0|5|20|
+|modules/fileprocess/src/FileprocessView.tsx|TypeScript JSX|8|0|4|12|
+|modules/fileprocess/src/FileprocessView.web.tsx|TypeScript JSX|13|0|3|16|
+|src/components/AnimatedChatHistoryModal.tsx|TypeScript JSX|631|1|38|670|
+|src/components/AnimatedScreenView.tsx|TypeScript JSX|28|0|6|34|
+|src/components/CharacterBubbleSelector.tsx|TypeScript JSX|364|15|51|430|
+|src/components/CharacterDetailModal.tsx|TypeScript JSX|273|5|23|301|
+|src/components/ChatDialog.tsx|TypeScript JSX|1,646|232|125|2,003|
+|src/components/ChatHistoryModal.tsx|TypeScript JSX|571|19|35|625|
+|src/components/ChatInput.tsx|TypeScript JSX|438|27|39|504|
+|src/components/DraggableScrollController.tsx|TypeScript JSX|160|27|16|203|
+|src/components/EditMessageModal.tsx|TypeScript JSX|239|0|19|258|
+|src/components/ImagePreviewModal.tsx|TypeScript JSX|293|4|31|328|
+|src/components/MemoryModal.tsx|TypeScript JSX|1,384|28|100|1,512|
+|src/components/MoreSettingsModal.tsx|TypeScript JSX|116|1|8|125|
+|src/components/PresetEntriesToggleModal.tsx|TypeScript JSX|224|1|12|237|
+|src/components/PromptPreviewModal.tsx|TypeScript JSX|290|0|18|308|
+|src/components/SaveAsModal.tsx|TypeScript JSX|151|1|9|161|
+|src/components/SideMenu.tsx|TypeScript JSX|300|6|27|333|
+|src/components/SimpleBrowserModal.tsx|TypeScript JSX|669|5|50|724|
+|src/components/TopBar.tsx|TypeScript JSX|223|7|12|242|
+|src/components/renderers/TableRenderer.tsx|TypeScript JSX|108|7|21|136|
+|src/constants/defaultCharacterAvatar.ts|TypeScript|1|3|1|5|
+|src/constants/defaultCharacterCard.ts|TypeScript|42|1|1|44|
+|src/constants/disabledPlaceholders.ts|TypeScript|47|0|0|47|
+|src/constants/webViewStyles.ts|TypeScript|91|36|6|133|
+|src/context/ChatContext.tsx|TypeScript JSX|120|6|14|140|
+|src/context/ModalContext.tsx|TypeScript JSX|33|0|9|42|
+|src/context/ThemeContext.tsx|TypeScript JSX|314|35|40|389|
+|src/hooks/useAnimatedModal.ts|TypeScript|35|0|6|41|
+|src/hooks/useBrowserStorage.ts|TypeScript|66|0|12|78|
+|src/hooks/useChatScreenHandlers.ts|TypeScript|155|8|19|182|
+|src/hooks/useMessageActions.ts|TypeScript|164|8|21|193|
+|src/hooks/usePrevious.ts|TypeScript|8|5|4|17|
+|src/hooks/useSlashCommands.ts|TypeScript|76|7|16|99|
+|src/hooks/useSlideUpModal.ts|TypeScript|36|0|7|43|
+|src/hooks/useStreamAnimator.ts|TypeScript|163|14|40|217|
+|src/hooks/useWhyDidYouUpdate.ts|TypeScript|23|13|7|43|
+|src/navigation/NavigationService.ts|TypeScript|14|1|2|17|
+|src/screens/CharacterEditScreen.tsx|TypeScript JSX|1,509|82|97|1,688|
+|src/screens/CharacterManagementScreen.tsx|TypeScript JSX|1,368|149|123|1,640|
+|src/screens/ChatScreen.tsx|TypeScript JSX|1,949|324|266|2,539|
+|src/screens/GlobalRegexEditScreen.tsx|TypeScript JSX|396|23|29|448|
+|src/screens/GlobalRegexManagementScreen.tsx|TypeScript JSX|250|25|18|293|
+|src/screens/GlobalWorldBookEditScreen.tsx|TypeScript JSX|914|108|57|1,079|
+|src/screens/GlobalWorldBookManagementScreen.tsx|TypeScript JSX|433|73|34|540|
+|src/screens/MemoryAndKnowledgeScreen.tsx|TypeScript JSX|1,935|25|131|2,091|
+|src/screens/PersonaManagementScreen.tsx|TypeScript JSX|645|32|38|715|
+|src/screens/PresetEditScreen.tsx|TypeScript JSX|966|105|92|1,163|
+|src/screens/PresetManagementScreen.tsx|TypeScript JSX|738|61|63|862|
+|src/screens/SettingsScreen.tsx|TypeScript JSX|1,136|76|63|1,275|
+|src/screens/StorageManagementScreen.tsx|TypeScript JSX|695|17|49|761|
+|src/screens/TextToImageSettingsScreen.tsx|TypeScript JSX|1,407|114|111|1,632|
+|src/screens/ThemeSettingsScreen.tsx|TypeScript JSX|1,159|43|51|1,253|
+|src/services/apiConfigService.ts|TypeScript|169|24|28|221|
+|src/services/characterCardService.ts|TypeScript|774|223|135|1,132|
+|src/services/chatStorage.ts|TypeScript|467|57|99|623|
+|src/services/customTagService.ts|TypeScript|312|123|28|463|
+|src/services/dynamicContextService.ts|TypeScript|377|24|51|452|
+|src/services/embeddingApiService.ts|TypeScript|107|1|14|122|
+|src/services/embeddingSettingsService.ts|TypeScript|160|6|17|183|
+|src/services/globalWorldBookService.ts|TypeScript|466|106|77|649|
+|src/services/imageGenApiConfigService.ts|TypeScript|111|10|12|133|
+|src/services/imageGenerationPresetService.ts|TypeScript|131|10|18|159|
+|src/services/imageTriggerService.ts|TypeScript|52|11|8|71|
+|src/services/knowledgeService.ts|TypeScript|1,515|42|218|1,775|
+|src/services/openAIService.ts|TypeScript|721|218|113|1,052|
+|src/services/personaService.ts|TypeScript|204|31|28|263|
+|src/services/placeholderService.ts|TypeScript|109|75|29|213|
+|src/services/presetService.ts|TypeScript|302|46|45|393|
+|src/services/presetVariableService.ts|TypeScript|78|16|11|105|
+|src/services/promptPostProcessorService.ts|TypeScript|92|36|17|145|
+|src/services/regexApplyService.ts|TypeScript|37|18|11|66|
+|src/services/regexScriptService.ts|TypeScript|285|59|44|388|
+|src/services/sillyTavernContextBuilder.ts|TypeScript|334|243|75|652|
+|src/services/stableDiffusionService.ts|TypeScript|144|38|21|203|
+|src/services/storageManagementService.ts|TypeScript|272|112|48|432|
+|src/services/streamAnimationService.ts|TypeScript|48|3|8|59|
+|src/services/worldBookService.ts|TypeScript|406|160|81|647|
+|src/styles/tableStyles.ts|TypeScript|34|1|1|36|
+|src/types/apiTypes.ts|TypeScript|67|9|13|89|
+|src/types/app.ts|TypeScript|46|9|9|64|
+|src/types/chat.ts|TypeScript|46|7|6|59|
+|src/types/customTag.ts|TypeScript|8|26|2|36|
+|src/types/imageGeneration.ts|TypeScript|113|15|11|139|
+|src/types/message.ts|TypeScript|20|2|1|23|
+|src/types/op-sqlite.d.ts|TypeScript|17|0|4|21|
+|src/types/persona.ts|TypeScript|25|2|4|31|
+|src/types/png-modules.d.ts|TypeScript|33|28|10|71|
+|src/types/react-native-event-source.d.ts|TypeScript|22|3|3|28|
+|src/types/regex.ts|TypeScript|33|60|3|96|
+|src/utils/textUtils.ts|TypeScript|8|6|6|20|
+
