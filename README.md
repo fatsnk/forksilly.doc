@@ -5,8 +5,10 @@
 
 version test1.26
 
-* [有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions) 
+* [有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)
 
+* 2025.11.11
+  * test1.26.62：聊天屏幕添加快速滚动按钮；角色管理界面添加拼接布局；新的应用图标
 * 2025.11.05
   * test1.26.56：角色图片可以选择jpg格式图片。
 * 2025.11.04
