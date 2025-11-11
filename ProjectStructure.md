@@ -137,7 +137,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 ---
 #### 🤣写文档好麻烦，不写了直接放表格了（
 
-*Total : 128 files, 34481 codes, 3930 comments, 3609 blanks, all 42020 lines*
+*Total : 132 files, 34980 codes, 4002 comments, 3676 blanks, all 42658 lines*
 
 |filename|language|code|comment|blank|total|
 |:----|:----|:----|:----|:----|:----|
@@ -184,7 +184,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/components/AnimatedScreenView.tsx|TypeScript JSX|28|0|6|34|
 |src/components/CharacterBubbleSelector.tsx|TypeScript JSX|364|15|51|430|
 |src/components/CharacterDetailModal.tsx|TypeScript JSX|273|5|23|301|
-|src/components/ChatDialog.tsx|TypeScript JSX|1,646|232|125|2,003|
+|src/components/ChatDialog.tsx|TypeScript JSX|1,403|181|139|1,723|
 |src/components/ChatHistoryModal.tsx|TypeScript JSX|571|19|35|625|
 |src/components/ChatInput.tsx|TypeScript JSX|438|27|39|504|
 |src/components/DraggableScrollController.tsx|TypeScript JSX|160|27|16|203|
@@ -195,7 +195,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/components/PresetEntriesToggleModal.tsx|TypeScript JSX|224|1|12|237|
 |src/components/PromptPreviewModal.tsx|TypeScript JSX|290|0|18|308|
 |src/components/SaveAsModal.tsx|TypeScript JSX|151|1|9|161|
-|src/components/SideMenu.tsx|TypeScript JSX|300|6|27|333|
+|src/components/SideMenu.tsx|TypeScript JSX|329|12|30|371|
 |src/components/SimpleBrowserModal.tsx|TypeScript JSX|669|5|50|724|
 |src/components/TopBar.tsx|TypeScript JSX|223|7|12|242|
 |src/components/renderers/TableRenderer.tsx|TypeScript JSX|108|7|21|136|
@@ -213,11 +213,12 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/hooks/usePrevious.ts|TypeScript|8|5|4|17|
 |src/hooks/useSlashCommands.ts|TypeScript|76|7|16|99|
 |src/hooks/useSlideUpModal.ts|TypeScript|36|0|7|43|
+|src/hooks/useStorage.ts|TypeScript|31|9|6|46|
 |src/hooks/useStreamAnimator.ts|TypeScript|163|14|40|217|
 |src/hooks/useWhyDidYouUpdate.ts|TypeScript|23|13|7|43|
 |src/navigation/NavigationService.ts|TypeScript|14|1|2|17|
 |src/screens/CharacterEditScreen.tsx|TypeScript JSX|1,509|82|97|1,688|
-|src/screens/CharacterManagementScreen.tsx|TypeScript JSX|1,368|149|123|1,640|
+|src/screens/CharacterManagementScreen.tsx|TypeScript JSX|1,130|135|146|1,411|
 |src/screens/ChatScreen.tsx|TypeScript JSX|1,949|324|266|2,539|
 |src/screens/GlobalRegexEditScreen.tsx|TypeScript JSX|396|23|29|448|
 |src/screens/GlobalRegexManagementScreen.tsx|TypeScript JSX|250|25|18|293|
@@ -241,6 +242,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/services/globalWorldBookService.ts|TypeScript|466|106|77|649|
 |src/services/imageGenApiConfigService.ts|TypeScript|111|10|12|133|
 |src/services/imageGenerationPresetService.ts|TypeScript|131|10|18|159|
+|src/services/imageSizeCache.ts|TypeScript|50|21|8|79|
 |src/services/imageTriggerService.ts|TypeScript|52|11|8|71|
 |src/services/knowledgeService.ts|TypeScript|1,515|42|218|1,775|
 |src/services/openAIService.ts|TypeScript|721|218|113|1,052|
@@ -256,6 +258,8 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/services/storageManagementService.ts|TypeScript|272|112|48|432|
 |src/services/streamAnimationService.ts|TypeScript|48|3|8|59|
 |src/services/worldBookService.ts|TypeScript|406|160|81|647|
+|src/styles/CharacterManagementScreen.styles.ts|TypeScript|500|43|11|554|
+|src/styles/ChatDialog.styles.ts|TypeScript|370|58|2|430|
 |src/styles/tableStyles.ts|TypeScript|34|1|1|36|
 |src/types/apiTypes.ts|TypeScript|67|9|13|89|
 |src/types/app.ts|TypeScript|46|9|9|64|
