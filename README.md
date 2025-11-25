@@ -5,7 +5,7 @@
 
 version test1.26
 
-* [有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)
+*[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
 * 2025.11.25
   * test1.26.71：预设编辑屏幕现在可以多选、跨预设复制粘贴条目。
