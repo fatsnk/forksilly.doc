@@ -7,6 +7,8 @@ version test1.26
 
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
+* 2025.12.12
+  * test1.26.72：支持渲染button标签。支持内联样式background和color，例如：`<button style="background: #3b82f6; color: white;">蓝色按钮</button>`；支持属性disabled，例如`<button disabled">被禁用的按钮</button>`。点击按钮会将按钮文本复制到剪贴板（没有其它功能）。
 * 2025.11.25
   * test1.26.71：预设编辑屏幕现在可以长按条目进行多选、跨预设复制粘贴条目。
 * 2025.11.11
