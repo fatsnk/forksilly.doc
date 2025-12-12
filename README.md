@@ -117,6 +117,9 @@ npx expo prebuild --platform android --clean
 文字颜色：
 <font color='red'>①这是红色字。</font>
 <span style="color: black;">这是黑的文字</span>
+按钮（仅用于复制按钮文本）：
+<button style="background: #3b82f6; color: white;">蓝色按钮</button>
+<button disabled">被禁用的按钮</button>
 插入web图片：
 ![](https://files.catbox.moe/y6uo86.jpg)
 <img src="https://files.catbox.moe/y6uo86.jpg" alt="公司Logo">
@@ -131,9 +134,9 @@ npx expo prebuild --platform android --clean
 - {{roll:10000}}
 - {{roll:1d100}}
 
-更多占位符请查阅[项目结构文档](ProjectStructure.md)
-
 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
+
+*更多占位符请查阅[项目结构文档](ProjectStructure.md)*
 
 想使用不受信任的https连接或frp内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)、[文生图简单教程](text2img.md)
 
@@ -143,7 +146,7 @@ npx expo prebuild --platform android --clean
 
 ### 推荐工具
 
-角色卡创建和编辑：[OcO萌/AI角色卡编辑器：CharacterEditor](https://ce.ooc.moe/zh-CN)
+角色卡创建和编辑：[妮卡角色工作室Pro](https://mocards.netlify.app/)、[OcO萌/AI角色卡编辑器：CharacterEditor](https://ce.ooc.moe/zh-CN)
 
 文生图webui推荐（[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)）：ControlNet的开发者lllyasviel制作的优化版webui，对性能较差的显卡有很大提升
   * 秋葉aaaki的整合包（[B站链接](https://www.bilibili.com/video/BV1rc6nYNEYo)）：支持SD3.5、FLUX，解压即用，无须安装git、Python、cuda等任何内容，只需将模型放入Stable Diffusion目录，在启动器高级设置中启用远程连接，即可使用！非常适合不想进行复杂设置、折腾ComfyUI工作流的玩家
