@@ -22,7 +22,7 @@
 
 ## Stable Diffusion
 
-1.部署Stable Diffusion并打开监听端口，建议使用（[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)），下载秋葉aaaki的整合包（[B站链接](https://www.bilibili.com/video/BV1rc6nYNEYo)），请参考相关教程，这里不再过多介绍。
+1.部署Stable Diffusion并打开监听端口，建议使用（[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)），下载秋葉aaaki的整合包（[B站链接](https://www.bilibili.com/video/BV1rc6nYNEYo)），请参考相关教程，这里不再过多介绍。*暂不支持填写API key,请勿设置密码*
 
 2.打开forksilly，点击右上角🔧，选择文生图，进入文生图设置。
 点击`API管理`标签，添加你部署好的Stable Diffusion的地址并保存：
