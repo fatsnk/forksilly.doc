@@ -67,7 +67,7 @@
   * 在 "API设置" 选择 OpenAI兼容类型，粘贴 api Key到“API密钥” 并点击“测试连接”验证连接是否有效。
 
 * 配置完毕后，点击“保存设置”关闭设置窗口。<br>
-*2025年11月推荐模型：gemini 3.0 pro(目前是收费模型)、glm4.6(ollama上可以免费使用)、Claude 4.5 opus（降价了）;备选：Gemini 2.5 pro(免费)、deepseek V3.1/3.2、Claude 4.5 sonnet*
+*2025年11月推荐模型：gemini 3.0 pro(目前是收费模型)、glm4.6(ollama上可以免费使用)、Claude 4.5 opus（降价了）;备选：Gemini 2.5 pro、deepseek V3.1/3.2、Claude 4.5 sonnet*
 
 ---
 
