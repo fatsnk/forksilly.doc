@@ -7,6 +7,8 @@ version test1.26
 
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
+* 2025.12.15
+  * test1.26.75：现在可以在主题设置的“符号与标签”页面为引号等符号包裹的内容（如对话）添加颜色样式。
 * 2025.12.12
   * test1.26.72：支持渲染button标签。支持内联样式background和color，例如：`<button style="background: #3b82f6; color: white;">蓝色按钮</button>`；支持属性disabled，例如`<button disabled">被禁用的按钮</button>`。点击按钮会将按钮文本复制到剪贴板（没有其它功能）。
 * 2025.11.25
