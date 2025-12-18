@@ -24,6 +24,7 @@ import expo.modules.ReactActivityDelegateWrapper
 class MainActivity : ReactActivity() {
   // private val READ_STORAGE_PERMISSION_REQUEST_CODE = 100 // 移除
   private val READ_MEDIA_IMAGES_PERMISSION_REQUEST_CODE = 101 // 保留媒体权限请求码
+  private val POST_NOTIFICATIONS_PERMISSION_REQUEST_CODE = 102 // 通知权限请求码
 
   override fun onCreate(savedInstanceState: Bundle?) {
     setTheme(R.style.AppTheme);
@@ -34,11 +35,24 @@ class MainActivity : ReactActivity() {
         hideNavigationBar()
     }, 100)
     requestMediaPermissionIfNeeded() // 调用新的权限检查方法
+    requestNotificationPermissionIfNeeded() // 调用通知权限检查方法
   }
 
   override fun onResume() {
       super.onResume()
       hideNavigationBar()
+      val serviceIntent = Intent(this, MyForegroundService::class.java)
+      stopService(serviceIntent)
+  }
+
+  override fun onPause() {
+      super.onPause()
+      val serviceIntent = Intent(this, MyForegroundService::class.java)
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+          startForegroundService(serviceIntent)
+      } else {
+          startService(serviceIntent)
+      }
   }
 
 
@@ -101,6 +115,14 @@ override fun onWindowFocusChanged(hasFocus: Boolean) {
     }
   }
 
+  private fun requestNotificationPermissionIfNeeded() {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+              requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), POST_NOTIFICATIONS_PERMISSION_REQUEST_CODE)
+          }
+      }
+  }
+
   override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
       super.onRequestPermissionsResult(requestCode, permissions, grantResults)
       // Log.d("PermissionDebug", "onRequestPermissionsResult called. RequestCode: " + requestCode) // 移除日志
@@ -110,6 +132,13 @@ override fun onWindowFocusChanged(hasFocus: Boolean) {
                   // Log.d("PermissionDebug", "READ_MEDIA_IMAGES permission GRANTED by user.") // 移除日志
               } else {
                   // Log.d("PermissionDebug", "READ_MEDIA_IMAGES permission DENIED by user.") // 移除日志
+              }
+          }
+          POST_NOTIFICATIONS_PERMISSION_REQUEST_CODE -> {
+              if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                  // Notification permission granted
+              } else {
+                  // Notification permission denied
               }
           }
           // READ_STORAGE_PERMISSION_REQUEST_CODE case removed
