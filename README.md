@@ -40,7 +40,7 @@ version test1.26
 
 # forksilly.doc
 此仓库主要存放ForkSilly的文档，
-顺带发布ForkSilly的apk安装包和源码（repo不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/latest)获取），安装使用请先阅读[注意事项](#注意事项) 。
+顺带发布ForkSilly的apk安装包和源码（repo不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/latest)获取），遇到问题请先阅读[常见问题解答](https://github.com/fatsnk/forksilly.doc/discussions/4#discussion-9176039)。*消息文字太多超出了消息气泡、消息内容重叠、代码块内容不完整？请在主题设置中调整聊天气泡最大高度和代码块高度设置。详见https://github.com/fatsnk/forksilly.doc/discussions/1#discussioncomment-14816259*
 
 [🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，介绍一些免费的API。
 
