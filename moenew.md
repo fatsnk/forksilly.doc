@@ -1,6 +1,6 @@
 # 新手帮助文档：
 
-第一次接触AIRP，不知道什么是kobold、sillytavern的玩家，参考下面的简单使用介绍。*ST的老用户可以直接跳到（[进阶设置](#文生图)）*
+第一次接触AIRP，不知道什么是kobold、sillytavern的玩家，参考下面的简单使用介绍。*ST的老用户可以直接跳到[进阶设置](#文生图)*
 
 ```
 此项目适合：
@@ -170,3 +170,30 @@ AI消息（聊天界面最后一条消息，通常是你看到的最后一条AI�
 
 ---
 
+### 有用的提示词
+
+#### 生成选项
+
+```
+<下一步选项>
+# 在每次输出的最末尾，提供数个符合当前情境的选项供玩家作为下一步行动的参考。
+选项要有足够区分度。
+
+## 选项输出格式示例（样式非必要。应根据情况使用合适的颜色和emoji）：
+
+请选择您的下一步行动：
+
+<button style="background: #3b82f6; color: white;">① 选项1</button>
+<button style="background: pink; color: white;">②  选项2</button>
+<button style="background: red; color: yellow;">③ 选项3</button>
+...（根据需要可以输出更多选项）
+（也可以输出<button disabled">被禁用的按钮</button>表示当前不能选择的行动。）
+
+</下一步选项>
+
+```
+AI输出渲染效果参考：
+
+![Screenshot_2025-12-20-14-58-07-30_f9700b557c438db](https://github.com/user-attachments/assets/c7ddffbf-d18a-403a-bf81-31b20b64d222)
+
+可以点击选项将其复制到剪贴板。
