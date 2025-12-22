@@ -44,6 +44,9 @@ version test1.26
 
 [🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，介绍一些免费的API。
 
+（20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
+* pollinations现在有seedream-pro、nanobanana-pro、zimage-turbo 6B 等新模型，每天重置免费额度，请注意检查页面上的“Pricing”信息。
+
 ## 概要
 ForkSilly: *一个react native/expo项目，主要用于Android。适用于对sillytavern有一定使用经验的用户*</br> ~~*小孩子不懂事，写着玩的🤕* *中文名*：*“傻叉”*（~~
 <p><em>在手机上体验sillytavern很难受，于是干脆让AI写了一个</em></p>
@@ -155,9 +158,11 @@ npx expo prebuild --platform android --clean
 文生图webui推荐（[stable-diffusion-webui-forge](https://github.com/lllyasviel/stable-diffusion-webui-forge)）：ControlNet的开发者lllyasviel制作的优化版webui，对性能较差的显卡有很大提升
   * 秋葉aaaki的整合包（[B站链接](https://www.bilibili.com/video/BV1rc6nYNEYo)）：支持SD3.5、FLUX，解压即用，无须安装git、Python、cuda等任何内容，只需将模型放入Stable Diffusion目录，在启动器高级设置中启用远程连接，即可使用！非常适合不想进行复杂设置、折腾ComfyUI工作流的玩家
 
+如果你想使用Zimage，请使用这个版本:[NEO](https://github.com/Haoming02/sd-webui-forge-classic/tree/neo?tab=readme-ov-file#new-features)。该版本没有一键安装包，需自行安装。
+
 文生图模型推荐：[WAI-NSFW-illustrious-SDXL](https://civitai.com/models/827184?modelVersionId=1761560)
 
-[new-api](https://github.com/QuantumNous/new-api)：AI接口管理与分发系统，支持将多种大语言模型转为统一的OpenAI兼容格式调用，有Windows版本，双击即可使用，方便管理和使用不同供应商的API。
+[octopus](https://github.com/bestruirui/octopus)：One Hub All LLMs.
 
 ## 声明
 
