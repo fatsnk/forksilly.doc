@@ -2,19 +2,19 @@
 
 ## 免费服务Pollinations
 
-[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，无需注册或API密钥，保障用户隐私。
+[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，每天有一定免费额度。
 
 打开forksilly，点击右上角🔧，选择文生图，进入文生图设置。
-切换到`API管理`标签页，选择API类型为“Pollinations”，填写模型名称（flux或turbo等，可以点击get models查看）并保存，点击设为默认按钮。
+切换到`API管理`标签页，选择API类型为“Pollinations”，获取模型名称（flux或turbo等，现在有大香蕉、seedream、Zimage等新模型，可以点击get models查看）并保存，点击设为默认按钮。
 
-如果需要去水印，请前往[验证页面](https://auth.pollinations.ai/) 登录你的GitHub账号，并生成API密钥，填写到文生图的APi设置中。如果没有需求，则不需要填写任何密钥。
+前往[管理页面](https://enter.pollinations.ai/) 登录你的GitHub账号，并生成API密钥，填写到文生图的APi设置中。
 
 然后前往预设管理页面随便添加一个预设保存并设为默认。
 
 接下来，切换到生成设置标签页，填写你喜欢的参数，然后点击下方的保存到预设。
-注意参数以预设中保存的为准，所以建议先点击保存到当前预设，然后再点击保存到当前API设置，这里的模型（model）也会覆盖API管理中的设置。
+注意参数以API中保存的为准，所以建议先点击保存到当前预设，然后再点击保存到当前API设置，这里的模型（model）也会覆盖API管理中的设置。
 
-*（turbo模型似乎对非正方形比例支持较好，flux有时会拉伸图像。不过还是请自行尝试。Pollinations的图像有缓存，因此重新生成是不会改变图片的，需要手动修改种子。）*
+*（Zimage性价比最高。turbo模型似乎对非正方形比例支持较好，flux有时会拉伸图像；其余模型消耗积分很多，一天用不了几次，请自行检查官方的priceing。Pollinations的图像有缓存，因此重新生成是不会改变图片的，需要手动修改种子。）*
 
 在聊天中启用文生图，请阅读后续的[通用设置](#通用设置)
 
