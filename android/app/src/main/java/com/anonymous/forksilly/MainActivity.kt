@@ -13,6 +13,8 @@ import android.util.Log // 日志
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.app.ActivityManager
+import android.content.Context
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -41,17 +43,35 @@ class MainActivity : ReactActivity() {
   override fun onResume() {
       super.onResume()
       hideNavigationBar()
-      val serviceIntent = Intent(this, MyForegroundService::class.java)
-      stopService(serviceIntent)
+      // 只有当服务真正作为前台服务运行时才停止，避免在服务启动过程中停止导致 Crash
+      if (isForegroundServiceRunning(MyForegroundService::class.java)) {
+          val serviceIntent = Intent(this, MyForegroundService::class.java)
+          stopService(serviceIntent)
+      }
+  }
+
+  @Suppress("DEPRECATION")
+  private fun isForegroundServiceRunning(serviceClass: Class<*>): Boolean {
+      val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+      for (service in manager.getRunningServices(Int.MAX_VALUE)) {
+          if (serviceClass.name == service.service.className) {
+              return service.foreground
+          }
+      }
+      return false
   }
 
   override fun onPause() {
       super.onPause()
-      val serviceIntent = Intent(this, MyForegroundService::class.java)
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-          startForegroundService(serviceIntent)
-      } else {
-          startService(serviceIntent)
+      try {
+          val serviceIntent = Intent(this, MyForegroundService::class.java)
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+              startForegroundService(serviceIntent)
+          } else {
+              startService(serviceIntent)
+          }
+      } catch (e: Exception) {
+          e.printStackTrace()
       }
   }
 
