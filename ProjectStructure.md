@@ -137,16 +137,17 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 ---
 #### 🤣写文档好麻烦，不写了直接放表格了（
 
-*Total : 132 files, 34980 codes, 4002 comments, 3676 blanks, all 42658 lines*
+*Total : 136 files, 36785 codes, 4193 comments, 3889 blanks, all 44867 lines*
 
 |filename|language|code|comment|blank|total|
 |:----|:----|:----|:----|:----|:----|
 |App.tsx|TypeScript JSX|196|12|16|224|
 |android/app/build.gradle|Groovy|97|68|22|187|
 |android/app/src/debug/AndroidManifest.xml|XML|5|0|3|8|
-|android/app/src/main/AndroidManifest.xml|XML|27|5|1|33|
-|android/app/src/main/java/com/anonymous/forksilly/MainActivity.kt|Kotlin|105|37|19|161|
+|android/app/src/main/AndroidManifest.xml|XML|34|5|1|40|
+|android/app/src/main/java/com/anonymous/forksilly/MainActivity.kt|Kotlin|148|40|22|210|
 |android/app/src/main/java/com/anonymous/forksilly/MainApplication.kt|Kotlin|43|3|12|58|
+|android/app/src/main/java/com/anonymous/forksilly/MyForegroundService.kt|Kotlin|55|8|10|73|
 |android/app/src/main/res/drawable/ic_launcher_background.xml|XML|6|0|0|6|
 |android/app/src/main/res/drawable/rn_edit_text_material.xml|XML|12|23|3|38|
 |android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml|XML|5|0|0|5|
@@ -184,7 +185,7 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/components/AnimatedScreenView.tsx|TypeScript JSX|28|0|6|34|
 |src/components/CharacterBubbleSelector.tsx|TypeScript JSX|364|15|51|430|
 |src/components/CharacterDetailModal.tsx|TypeScript JSX|273|5|23|301|
-|src/components/ChatDialog.tsx|TypeScript JSX|1,403|181|139|1,723|
+|src/components/ChatDialog.tsx|TypeScript JSX|1,410|181|141|1,732|
 |src/components/ChatHistoryModal.tsx|TypeScript JSX|571|19|35|625|
 |src/components/ChatInput.tsx|TypeScript JSX|438|27|39|504|
 |src/components/DraggableScrollController.tsx|TypeScript JSX|160|27|16|203|
@@ -193,22 +194,24 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/components/MemoryModal.tsx|TypeScript JSX|1,384|28|100|1,512|
 |src/components/MoreSettingsModal.tsx|TypeScript JSX|116|1|8|125|
 |src/components/PresetEntriesToggleModal.tsx|TypeScript JSX|224|1|12|237|
+|src/components/PromptListItem.tsx|TypeScript JSX|445|9|22|476|
 |src/components/PromptPreviewModal.tsx|TypeScript JSX|290|0|18|308|
 |src/components/SaveAsModal.tsx|TypeScript JSX|151|1|9|161|
 |src/components/SideMenu.tsx|TypeScript JSX|329|12|30|371|
 |src/components/SimpleBrowserModal.tsx|TypeScript JSX|669|5|50|724|
 |src/components/TopBar.tsx|TypeScript JSX|223|7|12|242|
+|src/components/renderers/ButtonRenderer.tsx|TypeScript JSX|127|6|12|145|
 |src/components/renderers/TableRenderer.tsx|TypeScript JSX|108|7|21|136|
 |src/constants/defaultCharacterAvatar.ts|TypeScript|1|3|1|5|
 |src/constants/defaultCharacterCard.ts|TypeScript|42|1|1|44|
-|src/constants/disabledPlaceholders.ts|TypeScript|47|0|0|47|
+|src/constants/disabledPlaceholders.ts|TypeScript|49|0|0|49|
 |src/constants/webViewStyles.ts|TypeScript|91|36|6|133|
 |src/context/ChatContext.tsx|TypeScript JSX|120|6|14|140|
 |src/context/ModalContext.tsx|TypeScript JSX|33|0|9|42|
-|src/context/ThemeContext.tsx|TypeScript JSX|314|35|40|389|
+|src/context/ThemeContext.tsx|TypeScript JSX|332|36|42|410|
 |src/hooks/useAnimatedModal.ts|TypeScript|35|0|6|41|
 |src/hooks/useBrowserStorage.ts|TypeScript|66|0|12|78|
-|src/hooks/useChatScreenHandlers.ts|TypeScript|155|8|19|182|
+|src/hooks/useChatScreenHandlers.ts|TypeScript|115|53|15|183|
 |src/hooks/useMessageActions.ts|TypeScript|164|8|21|193|
 |src/hooks/usePrevious.ts|TypeScript|8|5|4|17|
 |src/hooks/useSlashCommands.ts|TypeScript|76|7|16|99|
@@ -218,33 +221,33 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/hooks/useWhyDidYouUpdate.ts|TypeScript|23|13|7|43|
 |src/navigation/NavigationService.ts|TypeScript|14|1|2|17|
 |src/screens/CharacterEditScreen.tsx|TypeScript JSX|1,509|82|97|1,688|
-|src/screens/CharacterManagementScreen.tsx|TypeScript JSX|1,130|135|146|1,411|
+|src/screens/CharacterManagementScreen.tsx|TypeScript JSX|1,189|157|155|1,501|
 |src/screens/ChatScreen.tsx|TypeScript JSX|1,949|324|266|2,539|
 |src/screens/GlobalRegexEditScreen.tsx|TypeScript JSX|396|23|29|448|
 |src/screens/GlobalRegexManagementScreen.tsx|TypeScript JSX|250|25|18|293|
 |src/screens/GlobalWorldBookEditScreen.tsx|TypeScript JSX|914|108|57|1,079|
 |src/screens/GlobalWorldBookManagementScreen.tsx|TypeScript JSX|433|73|34|540|
-|src/screens/MemoryAndKnowledgeScreen.tsx|TypeScript JSX|1,935|25|131|2,091|
+|src/screens/MemoryAndKnowledgeScreen.tsx|TypeScript JSX|1,947|25|131|2,103|
 |src/screens/PersonaManagementScreen.tsx|TypeScript JSX|645|32|38|715|
-|src/screens/PresetEditScreen.tsx|TypeScript JSX|966|105|92|1,163|
+|src/screens/PresetEditScreen.tsx|TypeScript JSX|1,043|102|132|1,277|
 |src/screens/PresetManagementScreen.tsx|TypeScript JSX|738|61|63|862|
 |src/screens/SettingsScreen.tsx|TypeScript JSX|1,136|76|63|1,275|
 |src/screens/StorageManagementScreen.tsx|TypeScript JSX|695|17|49|761|
-|src/screens/TextToImageSettingsScreen.tsx|TypeScript JSX|1,407|114|111|1,632|
-|src/screens/ThemeSettingsScreen.tsx|TypeScript JSX|1,159|43|51|1,253|
+|src/screens/TextToImageSettingsScreen.tsx|TypeScript JSX|1,678|125|125|1,928|
+|src/screens/ThemeSettingsScreen.tsx|TypeScript JSX|1,380|46|64|1,490|
 |src/services/apiConfigService.ts|TypeScript|169|24|28|221|
-|src/services/characterCardService.ts|TypeScript|774|223|135|1,132|
+|src/services/characterCardService.ts|TypeScript|789|226|132|1,147|
 |src/services/chatStorage.ts|TypeScript|467|57|99|623|
-|src/services/customTagService.ts|TypeScript|312|123|28|463|
+|src/services/customTagService.ts|TypeScript|368|126|36|530|
 |src/services/dynamicContextService.ts|TypeScript|377|24|51|452|
 |src/services/embeddingApiService.ts|TypeScript|107|1|14|122|
-|src/services/embeddingSettingsService.ts|TypeScript|160|6|17|183|
+|src/services/embeddingSettingsService.ts|TypeScript|180|6|20|206|
 |src/services/globalWorldBookService.ts|TypeScript|466|106|77|649|
 |src/services/imageGenApiConfigService.ts|TypeScript|111|10|12|133|
 |src/services/imageGenerationPresetService.ts|TypeScript|131|10|18|159|
-|src/services/imageSizeCache.ts|TypeScript|50|21|8|79|
+|src/services/imageSizeCache.ts|TypeScript|77|27|12|116|
 |src/services/imageTriggerService.ts|TypeScript|52|11|8|71|
-|src/services/knowledgeService.ts|TypeScript|1,515|42|218|1,775|
+|src/services/knowledgeService.ts|TypeScript|1,545|42|228|1,815|
 |src/services/openAIService.ts|TypeScript|721|218|113|1,052|
 |src/services/personaService.ts|TypeScript|204|31|28|263|
 |src/services/placeholderService.ts|TypeScript|109|75|29|213|
@@ -253,8 +256,8 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/services/promptPostProcessorService.ts|TypeScript|92|36|17|145|
 |src/services/regexApplyService.ts|TypeScript|37|18|11|66|
 |src/services/regexScriptService.ts|TypeScript|285|59|44|388|
-|src/services/sillyTavernContextBuilder.ts|TypeScript|334|243|75|652|
-|src/services/stableDiffusionService.ts|TypeScript|144|38|21|203|
+|src/services/sillyTavernContextBuilder.ts|TypeScript|326|242|77|645|
+|src/services/stableDiffusionService.ts|TypeScript|301|63|40|404|
 |src/services/storageManagementService.ts|TypeScript|272|112|48|432|
 |src/services/streamAnimationService.ts|TypeScript|48|3|8|59|
 |src/services/worldBookService.ts|TypeScript|406|160|81|647|
@@ -264,13 +267,13 @@ ForkSilly 是一个基于 React Native (Expo) 构建的移动端聊天应用，�
 |src/types/apiTypes.ts|TypeScript|67|9|13|89|
 |src/types/app.ts|TypeScript|46|9|9|64|
 |src/types/chat.ts|TypeScript|46|7|6|59|
-|src/types/customTag.ts|TypeScript|8|26|2|36|
-|src/types/imageGeneration.ts|TypeScript|113|15|11|139|
+|src/types/customTag.ts|TypeScript|16|44|4|64|
+|src/types/imageGeneration.ts|TypeScript|154|16|17|187|
 |src/types/message.ts|TypeScript|20|2|1|23|
 |src/types/op-sqlite.d.ts|TypeScript|17|0|4|21|
 |src/types/persona.ts|TypeScript|25|2|4|31|
 |src/types/png-modules.d.ts|TypeScript|33|28|10|71|
 |src/types/react-native-event-source.d.ts|TypeScript|22|3|3|28|
 |src/types/regex.ts|TypeScript|33|60|3|96|
+|src/utils/quoteColorizer.ts|TypeScript|155|31|39|225|
 |src/utils/textUtils.ts|TypeScript|8|6|6|20|
-
