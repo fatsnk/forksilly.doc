@@ -119,7 +119,7 @@ npx expo prebuild --platform android --clean
 
 ## 使用技巧
 
-* 测试url: `https://oai-liard.vercel.app/v1` ，用于测试连通性、模型获取，也可以用于伪造assistant回复；
+* 测试url: `https://oai-liard.vercel.app/v1` ，用于测试连通性、模型获取、确认上下文，也可以用于伪造assistant回复；
   * 使用方法:添加一个新的api配置，填写该url，apikey任意填写，关闭流式传输，即可使用。
 
 * 支持部分HTML和markdown语法，例如：
