@@ -97,7 +97,8 @@ override fun onWindowFocusChanged(hasFocus: Boolean) {
     // Android 11 及以上
     window.setDecorFitsSystemWindows(false)
     window.insetsController?.let {
-        it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+        it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars()) //隐藏系统UI
+        // it.hide(WindowInsets.Type.navigationBars())
         //it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         // 改用这个行为：上划直接响应系统手势
         it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_DEFAULT
