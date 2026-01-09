@@ -255,6 +255,24 @@ import java.util.zip.CRC32
        convertJpgToPng(inputPath, outputPath)
   }
 
+  // 聊天文件处理方法 - 返回结构化对象列表，利用 JSI 直接传递
+  AsyncFunction("readChatFileAsync") { filePath: String ->
+      readChatFileStreaming(filePath)
+  }
+
+  AsyncFunction("getChatFilesInfoAsync") { directoryPath: String ->
+      getChatFilesInfo(directoryPath)
+  }
+
+  // 保存聊天记录 - Native 侧自己读取 header，JS 只传递文件路径和消息数组
+  AsyncFunction("saveChatAsync") { filePath: String, messages: List<Map<String, Any?>> ->
+      saveChatStreaming(filePath, messages)
+  }
+
+  AsyncFunction("appendMessageToChatAsync") { filePath: String, messageJson: String ->
+      appendMessageToChat(filePath, messageJson)
+  }
+
     // Enables the module to be used as a native view. Definition components that are accepted as part of
     // the view definition: Prop, Events.
     View(FileprocessView::class) {
