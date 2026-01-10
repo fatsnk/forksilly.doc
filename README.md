@@ -122,6 +122,8 @@ npx expo prebuild --platform android --clean
 * 测试url: `https://oai-liard.vercel.app/v1` ，用于测试连通性、模型获取、确认上下文，也可以用于伪造assistant回复；
   * 使用方法:添加一个新的api配置，填写该url，apikey任意填写，关闭流式传输，即可使用。
 
+* 消息气泡可以独立设置透明度而不影响消息文字：直接在用户气泡色和AI气泡色输入框中填写包含alpha通道值的16进制值即可，例如#3A3A3ABB，末尾的BB即表示不透明度，值越大透明度越低，FF为完全不透明；也可以设置成00全透明，模拟出类似文档的主题效果。
+
 * 支持部分HTML和markdown语法，例如：
 ```
 文字颜色：
