@@ -124,7 +124,7 @@ npx expo prebuild --platform android --clean
 
 * 消息气泡可以独立设置透明度而不影响消息文字：直接在用户气泡色和AI气泡色输入框中填写包含alpha通道值的16进制值即可，例如#3A3A3ABB，末尾的BB即表示不透明度，值越大透明度越低，FF为完全不透明；也可以设置成00全透明，模拟出类似文档的主题效果。
 
-* 支持部分HTML和markdown语法，例如：
+* 默认渲染器支持部分HTML内联样式和大部分markdown语法，例如：
 ```
 文字颜色：
 <font color='red'>①这是红色字。</font>
@@ -135,7 +135,7 @@ npx expo prebuild --platform android --clean
 插入web图片：
 ![](https://files.catbox.moe/y6uo86.jpg)
 <img src="https://files.catbox.moe/y6uo86.jpg" alt="公司Logo">
-使用在存储管理中上传的图片：
+使用在存储管理中上传的本地图片：
 <img src="gallery/我的角色/微笑.png" alt="微笑表情">
 ...
 ```
