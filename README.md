@@ -143,12 +143,17 @@ npx expo prebuild --platform android --clean
 * 在🔧中的存储管理中可管理你的文件，并可在`Gallery/角色名`目录下导入表情包和角色图片，以支持让AI以HTML格式插入聊天中，使用相对路径，例如`<img src="gallery/我的角色/微笑.png" alt="微笑表情">`
 
 * 支持roll和random占位符，例如
-- {{roll:10000}}
-- {{roll:1d100}}
+  - {{roll:10000}}
+  - {{roll:1d100}}
 
-支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用
+* 支持常见占位符，包括{{user}}、{{char}}、{{lastcharmessage}}、{{lastusermessage}}、{{lastmessage}}，因此大多数预设无需修改可直接使用。 其它占位符：
 
-   *更多占位符请查阅[项目结构文档](ProjectStructure.md)*
+  *   `{{user}}` (用户角色名), `{{char}}` (AI角色名) 及其别名 `<user>`, `<char>`。
+  *   `{{random::A::B...}}` (或 `{{random:A,B...}}`) 用于从列表中随机选取一项，若无参数则返回0-1随机数。
+  *   `{{roll::EXPRESSION}}` (或 `{{roll:EXPRESSION}}`) 用于掷骰计算，支持如 `1d6`、`2d10+3` 等表达式。
+  *   `{{lastmessage}}`: 当前聊天中的最后一条消息的文本。
+  *   `{{lastusermessage}}`: 聊天记录中最后一条用户消息的文本。
+  *   `{{lastcharmessage}}`: 聊天记录中最后一条助手（AI角色）消息的文本。
 
 * 想使用不受信任的https连接或frp内网穿透？请参考：[服务器自签证书教程](服务器自签证书教程.md)、[文生图简单教程](text2img.md)
 
