@@ -170,6 +170,7 @@ npx expo prebuild --platform android --clean
 [octopus](https://github.com/bestruirui/octopus)：One Hub All LLMs.
 
 ## 声明
+以下声明同时适用于仓库文档、forksilly源码、forksilly APP本体。
 
 *forksilly项目基于[AGPL-3.0](./LICENSE)授权，目前不提供闭源许可；任何基于此项目的修改、衍生作品或包含该项目代码的软件，必须同样以 AGPL-3.0 协议开源。*
 *如果您希望在其它项目中使用本代码：必须遵守 AGPL-3.0 协议，公开您的完整源代码；不可将本项目代码整合到闭源软件中。*
