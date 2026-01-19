@@ -74,6 +74,7 @@
 ### 3. 获取角色（Character）
 
 * 前往你知道的地方获取角色卡，比如Discord社区，或者直接在Google搜索`sillytavern Character card`，第一页会有几个分享角色卡的网站，前往下载png格式的角色卡。
+* forksilly示例角色卡《人参重开模拟器》：*https://github.com/fatsnk/LifeReloaded* ，一张简单的卡片，可用于测试。
 
 * 点击侧边菜单的 **角色列表** 。
 * 导入你下载或创建的png角色卡。
