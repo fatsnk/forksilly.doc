@@ -103,11 +103,14 @@ See the [LICENSE](./LICENSE) file for details.
 项目结构：[项目结构文档](ProjectStructure.md)
 
 如果你想自己打包APK，可下载源码到本地，使用以下命令调试和打包（需先配置Android开发环境和Java开发环境）：
+<!--npx expo prebuild --platform android --clean// 由于包含安卓原生代码，不需执行此命令-->
 ```
-npx expo prebuild --platform android --clean
+（安装依赖）npm install
 （在模拟器调试）npx expo run:android
-（切换到Android目录打包）gradlew assembleRelease
+cd android（切换到Android目录，修改gradle.properties文件底部的MYAPP_RELEASE_STORE_FILE等参数值为你自己的release证书和密钥）
+gradlew assembleRelease（打包成apk）
 ```
+如果你有Mac，也可以打包成ipa。
 
 ## 兼容性指引
 
