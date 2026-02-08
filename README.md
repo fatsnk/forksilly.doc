@@ -90,7 +90,7 @@ See the [LICENSE](./LICENSE) file for details.
 
 
 ## 下载
-<p>选择文件名不含src的压缩包，解压后安装APK文件。适用所有架构</p>
+<p>选择文件名不含src的压缩包，解压后安装APK文件。适用所有cpu架构<i>（因此安装包体积略大，单架构实际只有30mb）</i></p>
 <p align="left">
   <a href="https://github.com/fatsnk/forksilly.doc/releases/latest">
     <img src="https://img.shields.io/badge/📥 下载最新版本-blue?style=for-the-badge" alt="下载按钮">
