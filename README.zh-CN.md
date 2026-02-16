@@ -6,6 +6,8 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 [![文生图](https://img.shields.io/badge/文档-图片生成-blue.svg)](https://github.com/fatsnk/forksilly.doc/blob/main/text2img.md)
 [![知识库](https://img.shields.io/badge/文档-记忆与知识库-blue.svg)](https://github.com/fatsnk/forksilly.doc/blob/main/Embedding.md)
 [![API模板](https://img.shields.io/badge/文档-模板引擎-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)
+[![FAQ](https://img.shields.io/badge/讨论-常见问题-pink.svg)](https://github.com/fatsnk/forksilly.doc/discussions/4)
+
 
 ## 主要功能
 
