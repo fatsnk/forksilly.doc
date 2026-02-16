@@ -5,12 +5,12 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 ## 主要功能
 
 ### 聊天与内容渲染
-- 完整支持 SillyTavern V2 格式的角色卡、世界书、正则表达式与提示词预设。
-- 支持导入和导出聊天记录。
-- 渲染 Markdown 内容，包括图片、表格及部分 HTML 标签。如有必要，也可以手动切换为使用webview网页渲染。
-- 在聊天中可直接发送本地图片或截图。
+- 支持 SillyTavern V2 格式的角色卡、世界书、正则表达式、聊天记录与提示词预设。
+- 支持数据导入和导出。
+- 渲染 Markdown 内容，包括图片、表格及部分 HTML 标签。如有必要，也可以手动切换为使用webview渲染。
+- 在聊天中可发送本地图片。
 
-### 多模型 API 支持
+### API支持与模板引擎
 - 内置强大的 API 模板引擎，通过 JSON 配置文件描述任意 LLM API 的请求与响应结构。
 - 自动处理 URL 拼接、请求头构建、请求体填充、采样参数映射、图片嵌入及流式响应解析。
 - 支持 OpenAI、Claude、Gemini 等常见接口，也可通过导入自定义模板适配其他供应商或私有化部署的 API（请访问[API模板仓库](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)获取使用说明和示例模板）。
