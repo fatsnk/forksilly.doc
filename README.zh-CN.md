@@ -1,3 +1,5 @@
+<br><img src="./images/toolsetting.png" width="200" alt="fork"/><img src="./images/modelselect.png" width="200" alt="fork"/>
+
 # forksilly 应用介绍
 
 forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTavern 常用功能的基础上，扩展了 API 支持、图像生成与工具调用等功能，旨在为用户提供一个可自定义且功能完整的移动端 AI 交互环境。
