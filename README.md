@@ -1,38 +1,21 @@
 [![Homepage](./images/giveup.jpg)](https://fatsnk.github.io/fatsnk/)
 <br><img src="./images/fork.jpg" width="160" alt="fork"/>
+
+
+* [1.27版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
+[![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
+
+---
+
 <details>
   <summary>最近更新</summary>
 
-version test1.26
+version test1.27
 
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
-* 2025.12.18
-  * test1.26.82：添加后台保活服务（可能有用，不确定）。用于AI回复时，应用在后台也能接收消息；如果不需要这个功能，请关闭应用的通知权限。 
-* 2025.12.15
-  * test1.26.75：现在可以在主题设置的“符号与标签”页面为引号等符号包裹的内容（如对话）添加颜色样式。
-* 2025.12.12
-  * test1.26.72：支持渲染button标签。支持内联样式background和color，例如：`<button style="background: #3b82f6; color: white;">蓝色按钮</button>`；支持属性disabled，例如`<button disabled">被禁用的按钮</button>`。点击按钮会将按钮文本复制到剪贴板（没有其它功能）。
-* 2025.11.25
-  * test1.26.71：预设编辑屏幕现在可以长按条目进行多选、跨预设复制粘贴条目。
-* 2025.11.11
-  * test1.26.62：聊天屏幕添加快速滚动按钮；角色管理界面添加拼接布局；新的应用图标
-* 2025.11.05
-  * test1.26.56：角色图片可以选择jpg格式图片。
-* 2025.11.04
-  * test1.26.55：添加markdown表格渲染。
-* 2025.11.02
-  * test1.26.51：添加免费的文生图服务pollinations.ai。
-* 2025.09.22
-  * test1.26.20：支持简单的粗体、斜体，以及列表、分割符、删除线、各级标题、引用、链接的样式（markdown、HTML标签样式）；添加高亮文字、下划线的渲染支持（仅HTML标签样式）
-
-* 2025.09.05
-  * 尝鲜版1.26.0。
-  * 添加了记忆和知识库功能（使用嵌入模型生成向量）
-  * 使用op-sqlite作为本地数据库存储记忆和资料， 并使用sqlite-vec插件存储向量, an extension for RAG embeddings。
-  * 添加了/hide和/unhide斜杠命令。
-
-  * 使用教程：[记忆和知识库教程](https://github.com/fatsnk/forksilly.doc/blob/main/Embedding.md)
+* 2026.02.17
+  * test1.27.3：新增工具和MCP功能，详情查看应用中工具页面的使用说明；新增[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)，通过导入json模板可以兼容大部分API格式；新增发送图片功能。
 
 * changelog: [其它更新](changelog.md)
    
@@ -64,8 +47,9 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + 兼容sillytavern V2角色卡、世界书、正则、预设、聊天记录，可以随时导入导出。（[兼容性指引](#兼容性指引)）
 + 可任意更换的聊天字体
 + 可更换的聊天背景图片
-+ 聊天中快速开关预设条目
-+ 可使用任意OpenAI兼容格式的API，包括Gemini的OpenAI兼容接口，支持Google AI studio的API key，提示词后处理选“严格”。
++ 聊天中快速开关预设条目、切换模型
++ 可使用任意格式的API，通过[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)兼容。
++ 内置工具函数，且可以添加远程MCP服务。
 + 内置存储管理功能，用户可以导出应用内的所有内容（请谨慎操作）、管理缓存
 + 可在聊天中使用文生图：
   + 接入免费文生图服务pollinations.ai
