@@ -4,7 +4,7 @@
 
 * [1.27版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
-
+<br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-模板引擎-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
 ---
 
 <details>
