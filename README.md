@@ -26,7 +26,9 @@ version test1.27
 顺带发布ForkSilly的apk安装包和源码（repo不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/)获取），遇到问题请先阅读[常见问题解答](https://github.com/fatsnk/forksilly.doc/discussions/4#discussion-9176039)。*消息文字太多超出了消息气泡、消息内容重叠、代码块内容不完整？请在主题设置中调整聊天气泡最大高度和代码块高度设置。详见https://github.com/fatsnk/forksilly.doc/discussions/1#discussioncomment-14816259*
 
 [🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，介绍一些免费的API。<br />
-**示例角色卡**：制作了一个示例角色卡，供萌新参考。请查看 *https://github.com/fatsnk/LifeReloaded*
+**示例角色卡**：制作了示例角色卡，供萌新参考。请查看 *https://github.com/fatsnk/LifeReloaded*
+
+单轮生图助手：一张工具卡，用于生图模型。[【点击前往下载】](https://github.com/fatsnk/LifeReloaded/tree/ccv2/cards/imageAssistant)
 
 （20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
 * pollinations现在有seedream、nanobanana、zimage-turbo 6B 等新模型，每天重置免费额度，请注意检查页面上的“Pricing”信息。
