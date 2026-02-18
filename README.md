@@ -15,7 +15,7 @@ version test1.27
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
 * 2026.02.17
-  * test1.27.3：新增工具和MCP功能，详情查看应用中工具页面的使用说明；新增[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)，通过导入json模板可以兼容大部分API格式；新增发送图片功能。
+  * test1.27.3：新增工具和MCP功能，详情查看[工具使用说明](tools.md)；新增[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)，通过导入json模板可以兼容大部分API格式；新增发送图片功能。
 
 * changelog: [其它更新](changelog.md)
    
