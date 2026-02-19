@@ -83,7 +83,7 @@ See the [LICENSE](./LICENSE) file for details.
   </a>
 </p>
 
-*体验版：[![download](https://img.shields.io/badge/下载-v1.27-ff9e7d?style=plastic&logo=github)](https://github.com/fatsnk/forksilly.doc/releases)*
+*体验版：[![download](https://img.shields.io/badge/beta-v1.27-ff9e7d?style=plastic&logo=github)](https://github.com/fatsnk/forksilly.doc/releases)*
 
 ## 打包
 
