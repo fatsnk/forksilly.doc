@@ -33,6 +33,7 @@ version test1.27
 （20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
 * pollinations现在有seedream、nanobanana、zimage-turbo 6B 等新模型，每天重置免费额度，请注意检查页面上的“Pricing”信息。
 
+---
 ## 概要
 ForkSilly: *一个react native/expo项目，主要用于Android。适用于对sillytavern有一定使用经验的用户*</br> ~~*小孩子不懂事，写着玩的🤕* *中文名*：*“傻叉”*（~~ <em>由于手机端sillytavern用起来较难受，所以让AI写了这个项目。</em>
 <p></p>
