@@ -1,4 +1,4 @@
-<br><img src="./images/toolsetting.png" width="200" alt="fork"/><img src="./images/modelselect.png" width="200" alt="fork"/>
+<br><img src="./images/AI_INTERACTIVE.jpg" width="200" alt="fork"/><img src="./images/toolsetting.png" width="200" alt="fork"/><img src="./images/modelselect.png" width="200" alt="fork"/>
 
 # forksilly 应用介绍
 
