@@ -1,4 +1,4 @@
-<br><img src="./images/AI_INTERACTIVE.jpg" width="200" alt="fork"/><img src="./images/toolsetting.png" width="200" alt="fork"/><img src="./images/modelselect.png" width="200" alt="fork"/>
+<br><img src="./images/AI_INTERACTIVE.jpg" width="200" alt="fork"/><br><img src="./images/profile1.jpg" width="200" alt="profile"/><img src="./images/profileApply.jpg" width="200" alt="py"/><img src="./images/toolsetting.png" width="200" alt="fork"/><img src="./images/modelselect.png" width="200" alt="fork"/>
 
 # forksilly 应用介绍
 
@@ -27,6 +27,11 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 - 自动处理 URL 拼接、请求头构建、请求体填充、采样参数映射、图片嵌入及流式响应解析。
 - 支持 OpenAI、Claude、Gemini 等常见接口，也可通过导入自定义模板适配其他供应商或私有化部署的 API（请访问[API模板仓库](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)获取使用说明和示例模板）。
 - 支持在聊天界面随时切换 API 配置与模型。
+
+### 配置档管理
+- 将预设、全局世界书、全局正则等配置的开启状态保存成配置档，可在聊天中快速切换。
+- 保存当前主题和样式设置，便于随时切换喜欢的样式。
+- 可以导入和导出所有API配置，方便备份和保存。
 
 ### 图像生成集成
 - 在聊天中可调用内容追加工具或文生图工具，由指定模型生成图片并插入对话。
