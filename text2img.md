@@ -66,6 +66,14 @@
 
 <img src="./images/help/ReferenceImg.jpg" width="400"/>
 
+## 其它图片生成方式
+
+可通过在api设置中（聊天模型的api设置界面）导入api模板来使用其它常见的生图模型，例如openai的图片生成api，详情参请查看[API模板引擎的文档](https://github.com/fatsnk/APItemplateV2)。配合内置工具“内容追加”，也可以在RP对话中调用这些api进行配图，可自行探索。
+
+## 查看大图
+
+聊天中有图片时，点击聊天气泡下方菜单中的🖼️按钮，或长按🎨按钮（触发文生图时使用），可放大图片。
+
 ## 可选设置
 
 隐藏生成图片的img标签和原始文生图标签，避免影响AI回复，节省tokens。
