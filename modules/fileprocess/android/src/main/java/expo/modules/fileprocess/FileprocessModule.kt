@@ -255,6 +255,28 @@ import java.util.zip.CRC32
        convertJpgToPng(inputPath, outputPath)
   }
 
+  // 备份优化：原生递归统计文件数量，避免大量 bridge 调用
+  AsyncFunction("countFilesAsync") { dirPath: String ->
+      val cleanPath = if (dirPath.startsWith("file://")) dirPath.substring(7) else dirPath
+      val dir = File(cleanPath)
+      if (!dir.exists() || !dir.isDirectory) {
+          return@AsyncFunction 0
+      }
+      countFilesRecursive(dir)
+  }
+
+  // 备份优化：原生递归复制整个目录，避免大量 bridge 调用
+  AsyncFunction("copyDirectoryAsync") { srcPath: String, destPath: String ->
+      val cleanSrc = if (srcPath.startsWith("file://")) srcPath.substring(7) else srcPath
+      val cleanDest = if (destPath.startsWith("file://")) destPath.substring(7) else destPath
+      val srcDir = File(cleanSrc)
+      val destDir = File(cleanDest)
+      if (!srcDir.exists()) {
+          throw Exception("Source directory does not exist: $cleanSrc")
+      }
+      copyDirectoryRecursive(srcDir, destDir)
+  }
+
   // 聊天文件处理方法 - 返回结构化对象列表，利用 JSI 直接传递
   AsyncFunction("readChatFileAsync") { filePath: String ->
       readChatFileStreaming(filePath)
@@ -283,5 +305,42 @@ import java.util.zip.CRC32
       // Defines an event that the view can send to JavaScript.
       Events("onLoad")
     }
+  }
+
+  // ======== 备份优化辅助方法 ========
+
+  private fun countFilesRecursive(dir: File): Int {
+      var count = 0
+      val files = dir.listFiles() ?: return 0
+      for (file in files) {
+          if (file.isDirectory) {
+              count += countFilesRecursive(file)
+          } else {
+              count++
+          }
+      }
+      return count
+  }
+
+  private fun copyDirectoryRecursive(src: File, dest: File) {
+      if (src.isDirectory) {
+          if (!dest.exists()) {
+              dest.mkdirs()
+          }
+          val children = src.listFiles() ?: return
+          for (child in children) {
+              copyDirectoryRecursive(child, File(dest, child.name))
+          }
+      } else {
+          // 确保父目录存在
+          dest.parentFile?.let {
+              if (!it.exists()) it.mkdirs()
+          }
+          src.inputStream().use { input ->
+              dest.outputStream().use { output ->
+                  input.copyTo(output, bufferSize = 8192)
+              }
+          }
+      }
   }
 }
