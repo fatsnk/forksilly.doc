@@ -31,6 +31,12 @@ declare class FileprocessModule extends NativeModule<FileprocessModuleEvents> {
   /** 保存聊天记录 - Native 侧自己读取 header，JS 只传递文件路径和消息数组，利用 JSI 零拷贝传递 */
   saveChatAsync(filePath: string, messages: Array<Record<string, any>>): Promise<void>;
   appendMessageToChatAsync(filePath: string, messageJson: string): Promise<void>;
+
+  // 备份优化方法（仅 Android）
+  /** 原生递归统计目录下的文件数量 */
+  countFilesAsync(dirPath: string): Promise<number>;
+  /** 原生递归复制整个目录 */
+  copyDirectoryAsync(srcPath: string, destPath: string): Promise<void>;
 }
 
 // This call loads the native module object from the JSI.
