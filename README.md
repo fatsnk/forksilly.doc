@@ -44,7 +44,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 
 <img src="./images/richtext01.gif" width="200"/><img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
 
-#### 其它预览： [应用UI预览](./images/readme.md)
+#### 其它预览： [应用UI预览](./images/readme.md) | [常用主题预览](https://github.com/fatsnk/forksilly.doc/discussions/9)
 
 ## ForkSilly介绍
 * 该项目为自用分享，可能无法受理功能申请，使用上有问题请先参考本项目中的文档。
