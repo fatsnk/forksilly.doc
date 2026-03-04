@@ -52,8 +52,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 * 适合纯文字卡、插图卡（使用图床或[本地上传](#使用技巧)），以及Stable Diffusion文生图。不兼容前端/变量卡
 
 + 兼容sillytavern V2角色卡、世界书、正则、预设、聊天记录，可以随时导入导出。（[兼容性指引](#兼容性指引)）
-+ 可任意更换的聊天字体
-+ 可更换的聊天背景图片
++ 可更换的聊天字体和聊天界面样式。示例主题配置请看[这里](https://github.com/fatsnk/forksilly.doc/tree/main/images/help/themes)。
 + 聊天中快速开关预设条目、切换模型
 + 可使用任意格式的API，通过[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)兼容。
 + 内置工具函数，且可以添加远程MCP服务。
