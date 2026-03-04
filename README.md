@@ -56,7 +56,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + 聊天中快速开关预设条目、切换模型
 + 可使用任意格式的API，通过[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)兼容。
 + 内置工具函数，且可以添加远程MCP服务。
-+ 内置存储管理功能，用户可以导出应用内的所有内容（请谨慎操作）、管理缓存
++ 内置存储和备份管理功能以及方便的配置切换功能。
 + 可在聊天中使用文生图：
   + 接入免费文生图服务pollinations.ai
   + 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。[文生图简单教程](text2img.md)
