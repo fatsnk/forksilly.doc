@@ -91,4 +91,50 @@ gen_image改成你自定义的触发标签。最小深度可以设置为3，为A
 
 9.公网使用
 
-使用frp工具将sd服务暴露到公网，或者使用zerotier等内网穿透工具将你的手机和电脑连接到同一局域网。
+a. 使用frp工具将webui服务暴露到公网，或者使用zerotier等内网穿透工具将你的手机和电脑连接到同一局域网。
+
+b. 使用cloudflare tunnel（可能很慢，建议优先使用上面提到的服务）
+
+参考教程：
+
+https://github.com/cloudflare/cloudflared/releases/latest
+下载 cloudflared-windows-amd64.exe，重命名成 cloudflared.exe，放到任意目录，加入 PATH 就好。
+
+#### 方法1 
+临时地址（无需登录cloudflare）：cloudflared tunnel --url http://localhost:7860
+稍等几秒，终端会输出类似：
+Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  
+https://proud-tiger-sunrise-abc123.trycloudflare.com
+
+可以直接使用，重启后需要重新执行命令，地址会变成一个全新的随机地址，旧地址直接失效。
+
+#### 方法2 
+永久地址（需登录cloudflare且有托管的域名）：
+1. 创建 Tunnel
+登录并创建 Tunnel
+cloudflared tunnel login
+这步会在浏览器打开cloudflare进行登录并授权tunnel的域名，注意你的网络环境需要能访问cloudflare。
+cloudflared tunnel create my-tunnel
+这个命令会生成一个 Tunnel ID，记下来。
+2. 写配置文件
+在 C:\Users\你Windows系统的登录用户名\.cloudflared\config.yml 创建：
+```
+yamltunnel: <tunnel-id>
+credentials-file: C:\Users\你Windows系统的登录用户名\.cloudflared\<tunnel-id>.json
+
+ingress:
+  - hostname: 98793930-9d18-45a1-b043-49f5aae68768.yourdomain.com
+    service: http://localhost:7860
+  - service: http_status:404
+```
+替换<tunnel-id>、credentials-file路径、hostname、service为你自己的。
+请将hostname替换成你自己在cloudflare托管的域名，不要直接复制！建议子域名使用uuid例如98793930-9d18-45a1-b043-49f5aae68768防止被别人使用。
+
+3. 在 Cloudflare DNS 添加记录
+cloudflared tunnel route dns my-tunnel 98793930-9d18-45a1-b043-49f5aae68768
+这一步会自动在 Cloudflare 的 DNS 里加 CNAME，不用手动去控制台操作。
+4. 启动
+cloudflared tunnel run my-tunnel
+
+最终url就是你上面填写的: https://98793930-9d18-45a1-b043-49f5aae68768.yourdomain.com
+https是自动的，无需额外操作。
