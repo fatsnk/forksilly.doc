@@ -19,6 +19,14 @@ class MyForegroundService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // 处理退出 Action
+        if (intent?.action == ACTION_EXIT_APP) {
+            stopForeground(true)
+            stopSelf()
+            android.os.Process.killProcess(android.os.Process.myPid())
+            return START_NOT_STICKY
+        }
+
         createNotificationChannel()
 
         val notificationIntent = Intent(this, MainActivity::class.java)
@@ -28,7 +36,18 @@ class MyForegroundService : Service() {
             notificationIntent,
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT else PendingIntent.FLAG_UPDATE_CURRENT
         )
-        
+
+        // 退出按钮的 PendingIntent
+        val exitIntent = Intent(this, MyForegroundService::class.java).apply {
+            action = ACTION_EXIT_APP
+        }
+        val exitPendingIntent = PendingIntent.getService(
+            this,
+            1,
+            exitIntent,
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT else PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle("应用正在后台运行")
             .setContentText("点击返回应用")
@@ -36,6 +55,7 @@ class MyForegroundService : Service() {
             .setContentIntent(pendingIntent)
             .setOngoing(true) // 不可滑动清除
             .setPriority(NotificationCompat.PRIORITY_LOW) // 低优先级，减少打扰
+            .addAction(android.R.drawable.ic_delete, "退出应用", exitPendingIntent)
             .build()
 
         // Android 14 (API 34) 需要指定类型，这里配合 Manifest 里的 dataSync
@@ -69,5 +89,6 @@ class MyForegroundService : Service() {
 
     companion object {
         const val CHANNEL_ID = "ForegroundServiceChannel"
+        const val ACTION_EXIT_APP = "com.anonymous.forksilly.ACTION_EXIT_APP"
     }
 }
