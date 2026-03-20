@@ -26,7 +26,7 @@
   **A. 使用免费模型**
 
   * 可以前往gemini官网[ai.dev](https://ai.dev)，申请免费的api key。获取key后，在API设置选择gemini类型，填写你的key，然后点击测试连接。免费的有flash系列模型，但有一定的使用门槛，例如需要解决网络问题和预设。
-  * 免费服务[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，保障用户隐私。选择OpenAI兼容类型，填写URL为`https://text.pollinations.ai/openai`，。要使用更多模型，前往[验证页面](https://enter.pollinations.ai/sign-in)连接你的GitHub账号并生成密钥。现在有DeepSeek V3.2、Claude Haiku 4.5、Kimi K2.5、GLM-5等优质模型。 *可能有严格的审核，并且对话内容可能会在pollinations上展示*
+  * 免费服务[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，保障用户隐私。选择OpenAI兼容类型，填写URL为`https://gen.pollinations.ai/v1`，。要使用更多模型，前往[验证页面](https://enter.pollinations.ai/sign-in)连接你的GitHub账号并生成密钥。现在有DeepSeek V3.2、Claude Haiku 4.5、Kimi K2.5、GLM-5等优质模型。 *可能有严格的审核，并且对话内容可能会在pollinations上展示*
     * Pollinations同时提供免费的[文生图服务](https://github.com/fatsnk/forksilly.doc/blob/main/text2img.md#%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1pollinations)。
   * ollama：ollmam.com，著名开源项目。在官网注册并生成密钥。每周有少量免费额度，提供glm等开源模型，能较好地体验中文角色卡。唯一问题是免费额度很少。
   * NVIDIA NIM APIs：前往官网注册老黄账号。似乎每天有额度不明的免费额度，提供deepseek等开源模型试用；主要问题是高峰期会很卡，模型也非满血。API端点为`https://integrate.api.nvidia.com/v1`
