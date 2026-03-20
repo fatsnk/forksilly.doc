@@ -3,7 +3,8 @@
 第一次接触AIRP，不知道什么是kobold、sillytavern的玩家，参考下面的简单使用介绍。*ST的老用户可以直接跳到[进阶设置](#文生图)*
 
 ```
-
+拥有ST强大的提示词管理系统的同时，也能满足日常的问答需求；
+兼顾AI角色扮演和安卓端通用AI对话需求，通过配置档快速切换聊天环境。
 ```
 
 ---
@@ -24,8 +25,8 @@
 
   **A. 使用免费模型**
 
-  * 可以前往gemini官网[ai.dev](https://ai.dev)，申请免费的api key。获取key后，在API设置选择gemini类型，填写你的key，然后点击测试连接。最推荐的提供商之一，但有一定的使用门槛，例如需要解决网络问题和预设。
-  * 免费服务[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，无需注册或API密钥，保障用户隐私。选择OpenAI兼容类型，填写URL为`https://text.pollinations.ai/openai`，密钥填写一个空格即可。未注册用户也可以使用部分模型。要使用更多模型，前往[验证页面](https://auth.pollinations.ai/)连接你的GitHub账号并生成密钥。可用模型有gemini flash lite和openai的低端模型等，应该勉强可以游玩[chub](https://chub.ai/)上的开源角色卡。 *可能有严格的审核，并且对话内容可能会在pollinations上展示*
+  * 可以前往gemini官网[ai.dev](https://ai.dev)，申请免费的api key。获取key后，在API设置选择gemini类型，填写你的key，然后点击测试连接。免费的有flash系列模型，但有一定的使用门槛，例如需要解决网络问题和预设。
+  * 免费服务[Pollinations.AI](https://pollinations.ai/)：开源平台，官方称提供简单易用的文本和图像生成API，保障用户隐私。选择OpenAI兼容类型，填写URL为`https://text.pollinations.ai/openai`，。要使用更多模型，前往[验证页面](https://enter.pollinations.ai/sign-in)连接你的GitHub账号并生成密钥。现在有DeepSeek V3.2、Claude Haiku 4.5、Kimi K2.5、GLM-5等优质模型。 *可能有严格的审核，并且对话内容可能会在pollinations上展示*
     * Pollinations同时提供免费的[文生图服务](https://github.com/fatsnk/forksilly.doc/blob/main/text2img.md#%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1pollinations)。
   * ollama：ollmam.com，著名开源项目。在官网注册并生成密钥。每周有少量免费额度，提供glm等开源模型，能较好地体验中文角色卡。唯一问题是免费额度很少。
   * NVIDIA NIM APIs：前往官网注册老黄账号。似乎每天有额度不明的免费额度，提供deepseek等开源模型试用；主要问题是高峰期会很卡，模型也非满血。API端点为`https://integrate.api.nvidia.com/v1`
@@ -39,7 +40,7 @@
   * 在 "API设置" 选择 OpenAI兼容类型，粘贴 api Key到“API密钥” 并点击“测试连接”验证连接是否有效。
 
 * 配置完毕后，点击“保存设置”关闭设置窗口。<br>
-*2025年11月推荐模型：gemini 3.0 pro(目前是收费模型)、glm4.6(ollama上可以免费使用)、Claude 4.5 opus（降价了）;备选：Gemini 2.5 pro、deepseek V3.1/3.2、Claude 4.5 sonnet*
+*2026年3月推荐模型：gemini 3.1 pro(目前是收费模型)、glm4.6~glm5、Claude 4.5/4.6 opus（降价了）、Kimi K2.5;备选：Gemini 2.5 pro、deepseek V3.1/3.2、Claude 4.5 sonnet*
 
 ---
 
