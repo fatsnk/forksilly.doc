@@ -63,7 +63,7 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=fatsnk%2Fforksilly.doc&type=date&legend=bottom-right">
+<a href="https://www.star-history.com/?repos=fatsnk%2Fforksilly.doc&type=date&legend=top-left">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=fatsnk/forksilly.doc&type=date&theme=dark&legend=top-left" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=fatsnk/forksilly.doc&type=date&legend=top-left" />
