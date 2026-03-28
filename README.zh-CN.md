@@ -60,3 +60,13 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 - 使用 API 或图像生成服务时，需自行准备相应的账户与配置。
 - 部分功能如 MCP 服务连接需服务端支持相应协议。
 - 调用工具和文生图时，建议关闭API配置中的思维链显示，避免误触发。
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=fatsnk%2Fforksilly.doc&type=date&legend=bottom-right">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=fatsnk/forksilly.doc&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=fatsnk/forksilly.doc&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=fatsnk/forksilly.doc&type=date&legend=top-left" />
+ </picture>
+</a>
