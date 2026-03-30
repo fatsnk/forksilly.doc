@@ -866,5 +866,6 @@
 [yargs@15.4.1](https://github.com/yargs/yargs) - MIT
 [yargs@17.7.2](https://github.com/yargs/yargs) - MIT
 [yocto-queue@0.1.0](https://github.com/sindresorhus/yocto-queue) - MIT
-
-
+[droll@^0.2.1](https://github.com/thebinarypenguin/droll) - MIT
+[seedrandom@^3.0.5](https://github.com/davidbau/seedrandom)(https://www.npmjs.com/package/seedrandom) - MIT
+[chevrotain@^11.2.0](https://github.com/Chevrotain/chevrotain) - Apache-2.0
