@@ -49,7 +49,8 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 ## ForkSilly介绍
 * 该项目为自用分享，可能无法受理功能申请，使用上有问题请先参考本项目中的文档。
   * *因为99.9%的代码由AI生成，你提需求我也做不出来😭（*
-* 适合纯文字卡、插图卡（使用图床或[本地上传](#使用技巧)），以及Stable Diffusion文生图。不兼容前端/变量卡
+* 适合纯文字卡、插图卡（使用图床或[本地上传](#使用技巧)），以及Stable Diffusion文生图。
+  * 兼容酒馆原生变量和实验性宏引擎部分语法，不兼容前端/MVU变量/ejs
 
 + 兼容sillytavern V2角色卡、世界书、正则、预设、聊天记录，可以随时导入导出。（[兼容性指引](#兼容性指引)）
 + 可更换的聊天字体和聊天界面样式。示例主题配置请看[这里](https://github.com/fatsnk/forksilly.doc/tree/main/images/help/themes)。
