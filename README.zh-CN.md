@@ -50,6 +50,12 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 - 基于向量数据库的记忆与知识库系统。
 - 支持世界书的向量化存储。
 
+### 实验性宏引擎
+* 兼容部分SillyTavern的Experimental Macro Engine语法，详情查看[ST官方文档](https://docs.sillytavern.app/usage/core-concepts/macros/#double-colon-separator)
+* 支持的宏包括变量、时间日期、随机、增减、逻辑、if else条件等
+* 实验性宏引擎默认关闭，可在聊天界面右上角“更多选项” > “工具” > “实验性宏引擎”中启用此功能。
+* 测试用例和部分语法示例：[点这里查看](https://github.com/fatsnk/forksilly.doc/blob/main/%E5%AE%8F%E5%BC%95%E6%93%8E%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.md)
+
 ## 使用场景
 - 在移动设备上进行沉浸式的角色对话与创作。
 - 快速测试和切换不同模型与 API 服务。
