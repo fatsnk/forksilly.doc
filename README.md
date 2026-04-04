@@ -10,17 +10,13 @@
 <details>
   <summary>最近更新</summary>
 
-version test1.27
+version test1.28
 
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
-* 2026.03.04
-  * test1.27.14：添加了数据备份功能，从存储管理右下角菜单进入；建议配合配置档功能使用。聊天中添加查看大图功能（如果有图片）。点击聊天气泡下方菜单中的🖼️按钮，或长按🎨按钮（触发文生图时使用），可放大图片。
-* 2026.03.03
-  * test1.27.9：添加配置档管理。请从右上角`🔧更多选项`菜单关闭按钮旁的文件按钮进入
-* 2026.02.17
-  * test1.27.3：新增工具和MCP功能，详情查看[工具使用说明](tools.md)；新增[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)，通过导入json模板可以兼容大部分API格式；新增发送图片功能。
-
+*  2026.04.01
+  * test1.28：添加实验性宏引擎。
+  
 * changelog: [其它更新](changelog.md)
    
 </details>
