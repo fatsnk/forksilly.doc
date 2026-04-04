@@ -14,7 +14,7 @@ version test1.28
 
 *[有问题可前往discussion交流](https://github.com/fatsnk/forksilly.doc/discussions)*
 
-*  2026.04.01
+* 2026.04.01
   * test1.28：添加实验性宏引擎。
   
 * changelog: [其它更新](changelog.md)
