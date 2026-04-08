@@ -168,6 +168,8 @@ gradlew assembleRelease（打包成apk）
 
 文生图模型推荐：[WAI-NSFW-illustrious-SDXL](https://civitai.com/models/827184?modelVersionId=1761560)
 
+NovelAI转stable diffusion（webUI A1111）: [novel api go](https://github.com/fatsnk/novel-api-go)，可部署在本地或云平台的中转项目，可将novelAI文生图接口转换成openai或A1111等更通用的格式，方便接入各种客户端。
+
 [octopus](https://github.com/bestruirui/octopus)：One Hub All LLMs.
 
 ## 声明
