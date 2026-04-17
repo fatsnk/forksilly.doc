@@ -62,7 +62,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + （可选）接入硅基流动和Gemini的嵌入模型。（支持记忆生成、自动保存到本地向量数据库：[记忆和知识库教程](Embedding.md)）。
 
 - 不支持tts(文字转语音)
-- novelAI和comfyui请查看[配套项目](#配套项目)
+- novelAI和comfyui请查看[关联项目](#关联项目)
 
 ## License
 
@@ -172,7 +172,7 @@ NovelAI转stable diffusion（webUI A1111）: [novel api go](https://github.com/f
 
 [octopus](https://github.com/bestruirui/octopus)：One Hub All LLMs.
 
-## 配套项目
+## 关联项目
 
 [comfyui2A1111](https://github.com/fatsnk/Comfyui2A1111): 将comfyui和novelAI的接口转换为更通用的api（openai兼容和A1111），配置后便可接入forksilly或其它平台使用。
 
