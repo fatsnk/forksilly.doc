@@ -4,7 +4,7 @@
 通知公告
 * [1.28版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
-<br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-API模板-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
+<br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2#apitemplatev2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-API模板-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
 
 * （20260424）已更新 DeepSeek V4 模板。前往模板仓库下载并导入api设置中使用：https://github.com/fatsnk/APItemplateV2/tree/main/templates
 
