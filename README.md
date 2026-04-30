@@ -6,6 +6,9 @@
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
 <br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2#apitemplatev2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-API模板-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
 
+* （20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
+  * 每小时重置免费额度，请注意检查页面上的“Pricing”信息。
+
 * （20260424）已更新 DeepSeek V4 模板。前往模板仓库下载并导入api设置中使用：https://github.com/fatsnk/APItemplateV2/tree/main/templates
 
 
@@ -26,16 +29,17 @@ version test1.28
 
 ---
 # forksilly.doc
-此仓库主要存放ForkSilly的文档，
-顺带发布ForkSilly的apk安装包和源码（repo不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/)获取），遇到问题请先阅读[常见问题解答](https://github.com/fatsnk/forksilly.doc/discussions/4#discussion-9176039)。*https://github.com/fatsnk/forksilly.doc/discussions/1#discussioncomment-14816259*
+这个仓库是ForkSilly的文档仓库，forksilly的源码和apk安装包会在仓库的releases发布。
+（仓库文件不含完整源码，完整源码请在[📦releases](https://github.com/fatsnk/forksilly.doc/releases/)获取），遇到问题请先阅读仓库的帮助文档，并检查[常见问题解答](https://github.com/fatsnk/forksilly.doc/discussions/4#discussion-9176039) 是否已有相关解答。*https://github.com/fatsnk/forksilly.doc/discussions/1#discussioncomment-14816259*
 
-[🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，介绍一些免费的API。<br />
+[🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，包含简单的使用方法和一些基础知识。<br />
 **示例角色卡**：制作了示例角色卡，供萌新参考。请查看 *https://github.com/fatsnk/LifeReloaded*
 
-单轮生图助手：一张工具卡，用于某些纯生图模型，内置了正则只发送最新一条消息，以便在对话中直接生成图片，不用每次都重新开始新的聊天。[【点击前往下载】](https://github.com/fatsnk/LifeReloaded/tree/ccv2/cards/imageAssistant)
+宏与变量的示例卡：[![宏](https://custom-icon-badges.demolab.com/badge/{/}-天启坦克-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/tree/ccv2/cards/tank)
 
-（20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
-* 每小时重置免费额度，请注意检查页面上的“Pricing”信息。
+单轮生图助手：一张工具卡，用于某些生图模型，内置了正则只发送最新一条消息，以便在对话中直接生成图片，不用每次都重新开始新的聊天。点击前往下载：[![单轮](https://custom-icon-badges.demolab.com/badge/1-单轮生图-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/blob/ccv2/cards/imageAssistant)
+
+
 
 ---
 ## 概要
