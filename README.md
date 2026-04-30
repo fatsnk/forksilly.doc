@@ -35,9 +35,9 @@ version test1.28
 [🎬 新手快速上手指南](moenew.md#-%E6%96%B0%E6%89%8B%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97)：新手入门，包含简单的使用方法和一些基础知识。<br />
 **示例角色卡**：制作了示例角色卡，供萌新参考。请查看 *https://github.com/fatsnk/LifeReloaded*
 
-宏与变量的示例卡：[![宏](https://custom-icon-badges.demolab.com/badge/{/}-天启坦克-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/tree/ccv2/cards/tank)
+  * 宏与变量的示例卡：[![宏](https://custom-icon-badges.demolab.com/badge/{/}-天启坦克-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/tree/ccv2/cards/tank) 展示如何使用宏。
 
-单轮生图助手：一张工具卡，用于某些生图模型，内置了正则只发送最新一条消息，以便在对话中直接生成图片，不用每次都重新开始新的聊天。点击前往下载：[![单轮](https://custom-icon-badges.demolab.com/badge/1-单轮生图-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/blob/ccv2/cards/imageAssistant)
+  * 单轮生图助手：[![单轮](https://custom-icon-badges.demolab.com/badge/1-单轮生图-ffdab9?logo=card)](https://github.com/fatsnk/LifeReloaded/blob/ccv2/cards/imageAssistant) 这是一张工具卡，用于某些生图模型，内置了正则只发送最新一条消息，以便在对话中直接生成图片，无需每次生成都重新开始新聊天。
 
 
 
@@ -49,6 +49,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 <img src="./images/richtext01.gif" width="200"/><img src="./images/chatscreen1.25.38.jpg" width="200"/><img src="./images/bubbles.gif" width="200"/>
 
 #### 其它预览： [应用UI预览](./images/readme.md) | [常用主题预览](https://github.com/fatsnk/forksilly.doc/discussions/9)
+*预览图可能修改过主题设置且为历史版本截图，不代表app安装后的默认效果*
 
 ## ForkSilly介绍
 * 该项目为自用分享，可能无法受理功能申请，使用上有问题请先参考本项目中的文档。
@@ -85,7 +86,7 @@ See the [LICENSE](./LICENSE) file for details.
 
 
 ## 下载
-<p>选择文件名不含src的压缩包，解压后安装APK文件。适用所有cpu架构<i>（因此安装包体积略大，单架构实际只有30mb）</i></p>
+<p>选择文件名不含src的压缩包，解压后安装APK文件。适用所有cpu架构<i>（因此安装包体积略大）</i></p>
 <p align="left">
   <a href="https://github.com/fatsnk/forksilly.doc/releases/latest">
     <img src="https://img.shields.io/badge/📥-Download-blue?style=flat" alt="下载按钮">
