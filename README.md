@@ -61,7 +61,7 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + 可更换的聊天字体和聊天界面样式。示例主题配置请看[这里](https://github.com/fatsnk/forksilly.doc/tree/main/images/help/themes)。
 + 聊天中快速开关预设条目、切换模型
 + 可使用任意格式的API，通过[API模板引擎](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)兼容。
-+ 内置工具函数，且可以添加远程MCP服务。
++ 内置工具，且可以添加远程MCP服务。
 + 内置存储和备份管理功能以及方便的配置切换功能。
 + 可在聊天中使用文生图：
   + 接入免费文生图服务pollinations.ai
