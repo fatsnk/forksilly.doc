@@ -68,7 +68,10 @@
 
 ## 其它图片生成方式
 
-可通过在api设置中（聊天模型的api设置界面）导入api模板来使用其它常见的生图模型，例如openai的图片生成api，详情参请查看[API模板引擎的文档](https://github.com/fatsnk/APItemplateV2)。配合内置工具“内容追加”，也可以在RP对话中调用这些api进行配图，可自行探索。
+* 使用内置工具调用生图api: 可通过在api设置中（聊天模型的api设置界面）导入api模板来使用其它常见的生图模型，例如openai的图片生成api，详情参请查看[API模板引擎的文档](https://github.com/fatsnk/APItemplateV2)。配合内置工具“内容追加”，也可以在RP对话中调用这些api进行配图，可自行探索。
+
+* 要使用comfyui和novelAI，请查看关联项目[comfyui2A1111](https://github.com/fatsnk/Comfyui2A1111): 将comfyui和novelAI的接口转换为更通用的api（openai兼容和A1111），配置后便可接入forksilly或其它平台使用。
+
 
 ## 查看大图
 
