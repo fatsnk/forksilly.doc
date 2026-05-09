@@ -11,7 +11,9 @@
 
 * （20260424）已更新 DeepSeek V4 模板。前往模板仓库下载并导入api设置中使用：https://github.com/fatsnk/APItemplateV2/tree/main/templates
 
+*应用不会自动截断上下文。如有相关需求，请查看[使用技巧](#使用技巧)中”限制上下文“部分。*
 
+`应用不渲染无法识别的xml标签中的内容。如有需要，请在主题设置中的标签规则选项卡添加标签名,`详情参考[FAQ](https://github.com/fatsnk/forksilly.doc/discussions/4)的Q11。
 
 <details>
   <summary>最近更新</summary>
