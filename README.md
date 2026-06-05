@@ -68,13 +68,15 @@ ForkSilly: *一个react native/expo项目，主要用于Android。适用于对si
 + 内置存储和备份管理功能以及方便的配置切换功能。
 + 可在聊天中使用文生图：
   + 接入免费文生图服务pollinations.ai
+  + 支持openai兼容格式
   + 支持Stable Diffusion文生图功能(sd需开启监听：添加启动参数` --api --listen --cors-allow-origins '*'`)，请点击🔧图标进入更多选项-文生图，并添加API、预设并设置默认和参数，然后在触发标签中开启聊天文生图功能。预设中的main在请求时会被替换成捕获的提示词，其它条目则会根据你选择的位置拼接。[文生图简单教程](text2img.md)
     * 在llm的预设中添加一个文生图条目，让AI输出你自定义的标签包裹的文生图提示词即可，例如`<gen_image>prompt tags</gen_image>`（可在预设中添加相应条目，或使用世界书）。如果需要重新生成，可点击🎨手动生成。
     * 可在存储管理的gallery目录中找到聊天中生成的图片
+  * 支持NovelAI文生图api（长按文生图api配置的标题可启用此类型，只支持4和4.5，不保证能支持后续的新模型）
 + （可选）接入硅基流动和Gemini的嵌入模型。（支持记忆生成、自动保存到本地向量数据库：[记忆和知识库教程](Embedding.md)）。
 
 - 不支持tts(文字转语音)
-- novelAI和comfyui请查看[关联项目](#关联项目)
+- comfyui请查看[关联项目](#关联项目)
 
 ## License
 
