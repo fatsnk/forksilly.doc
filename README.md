@@ -188,9 +188,9 @@ NovelAI转stable diffusion（webUI A1111）: [novel api go](https://github.com/f
 
 ## 关联项目
 
-[ChatAndImage](https://github.com/fatsnk/Chat_And_Image/releases)：本地comfyui可用此服务转换为A1111(stable diffusion)接口，单个可执行文件，Windows下双击即可使用，有用户界面。下面的项目如果连接comfyui有bug也可以试试这个。
-
 [comfyui2A1111](https://github.com/fatsnk/Comfyui2A1111): 将comfyui和novelAI的接口转换为更通用的api（openai兼容和A1111），配置后便可接入forksilly或其它平台使用。
+
+[ChatAndImage](https://github.com/fatsnk/Chat_And_Image/releases)：本地comfyui可用此服务转换为A1111(stable diffusion)接口，单个可执行文件，Windows下双击即可使用，有用户界面。上面的项目如果连接comfyui有bug也可以试试这个。但目前只支持localhost访问，如果其它设备需要连接api，需要使用frp工具映射一下。
 
 [novel api go](https://github.com/fatsnk/novel-api-go)：一个转换novelAI接口的项目，由于forksilly支持nai，目前应该无需使用。
 
