@@ -6,8 +6,8 @@
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
 <br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2#apitemplatev2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-API模板-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
 
-* （20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。
-  * 每小时重置免费额度，请注意检查页面上的“Pricing”信息。
+~~（20251222）提醒：pollinations.ai接口已经更新。如果你使用pollinations进行文生图，请将app更新到[1.26.86](https://github.com/fatsnk/forksilly.doc/releases/)以上版本，文生图url修改为`https://gen.pollinations.ai/image`，并前往新的[管理页面](https://enter.pollinations.ai/)`https://enter.pollinations.ai/`创建新的api key。~~
+  * (202607)现在pollinations已不再免费，故不再推荐使用。
 
 * （20260424）已更新 DeepSeek V4 模板。前往模板仓库下载并导入api设置中使用：https://github.com/fatsnk/APItemplateV2/tree/main/templates
 * （202605）硅基流动突然需要实名认证才能使用，否则会报错。如果你使用硅基的模型（聊天模型或记忆）遇到401或403错误，请到硅基流动官网进行认证。
