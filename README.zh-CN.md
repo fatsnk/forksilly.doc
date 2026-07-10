@@ -42,7 +42,7 @@ forksilly 是一款面向 Android 设备的 AI 聊天应用，在兼容 SillyTav
 ### 图像生成集成
 - 在聊天中可调用内容追加工具或文生图工具，由指定模型生成图片并插入对话。
 - 支持连接 Stable Diffusion（A1111）API。
-- 集成免费图像生成服务 pollinations.ai。
+- 兼容图像生成服务 Novel AI的nai-diffusion-4.5模型。
 - 提供独立的文生图操作界面，可作为移动端 Stable Diffusion 客户端使用。
 
 ### 工具系统与 MCP 服务
