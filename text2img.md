@@ -54,7 +54,7 @@
 
 * 使用novelAI：添加文生图API配置时，长按“添加新API配置”弹窗的标题文字，便可选择novelAI类型（仅支持4和4.5，可能不会兼容后续新模型）。novelAI的url需填写完整url。
 
-* 要使用comfyui，请查看关联项目[comfyui2A1111](https://github.com/fatsnk/Comfyui2A1111): 将comfyui和novelAI的接口转换为更通用的api（openai兼容和A1111），配置后便可接入forksilly或其它平台使用。
+* 要使用comfyui，请查看关联项目[comfyui2A1111](https://github.com/fatsnk/Comfyui2A1111)或[ChatAndImage](https://github.com/fatsnk/Chat_And_Image/releases): 将comfyui和novelAI的接口转换为更通用的api（openai兼容和A1111），配置后便可接入forksilly或其它平台使用。
 
 
 ### Pollinations
