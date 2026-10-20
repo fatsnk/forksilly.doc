@@ -2,6 +2,10 @@
 <br><img src="./images/fork.jpg" width="160" alt="fork"/>
 
 通知公告
+
+目前使用比较稳定，可满足日常使用，暂时不打算新增功能，以维护为主，后续如果有好的想法会继续更新。暂时不会有agent功能，增加回复等待时间，消耗token翻倍，付出这样的代价也提升不了多少回复质量，性价比极低。
+*Gemini 4 Argon真好呀，可惜甲太厚了🥲*
+
 * [1.28版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
 <br>通过[API模板引擎](https://github.com/fatsnk/APItemplateV2#apitemplatev2)兼容了大部分api格式，并添加mcp。如果需要连接Gemini、Claude等原生格式，请点击[![API模板](https://img.shields.io/badge/文档-API模板-blue.svg)](https://github.com/fatsnk/APItemplateV2?tab=readme-ov-file)按钮前往模板仓库下载示例模板导入api设置。
