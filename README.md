@@ -4,7 +4,7 @@
 通知公告
 
 目前使用比较稳定，可满足日常使用，暂时不打算新增功能，以维护为主，后续如果有好的想法会继续更新。暂时不会有agent功能，增加回复等待时间，消耗token翻倍，付出这样的代价也提升不了多少回复质量，性价比极低。
-*Gemini 4 Argon真好呀，可惜甲太厚了🥲*
+*Gemini 4 Argon真好呀，可惜甲太厚了🥲（可使用[关联项目](#推荐工具)中的Gemini网关改善体验）*
 
 * [1.28版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
@@ -187,6 +187,8 @@ gradlew assembleRelease（打包成apk）
 文生图模型推荐：[WAI-NSFW-illustrious-SDXL](https://civitai.com/models/827184?modelVersionId=1761560)
 
 NovelAI转stable diffusion（webUI A1111）: [novel api go](https://github.com/fatsnk/novel-api-go)，可部署在本地或云平台的中转项目，可将novelAI文生图接口转换成openai或A1111等更通用的格式，方便接入各种客户端。
+
+[gemini-anti-truncation](https://github.com/fatsnk/gemini-anti-truncation)：Gemini和vertex网关，fork from [vertex-antitruncation](https://github.com/ken050210/vertex-streaming-anti-truncation)
 
 [octopus](https://github.com/bestruirui/octopus)：One Hub All LLMs.
 
