@@ -4,7 +4,7 @@
 通知公告
 
 目前使用比较稳定，可满足日常使用，暂时不打算新增功能，以维护为主，后续如果有好的想法会继续更新。暂时不会有agent功能，增加回复等待时间，消耗token翻倍，付出这样的代价也提升不了多少回复质量，性价比极低。
-*Gemini 4 Argon真好呀，可惜甲太厚了🥲（可使用[关联项目](#推荐工具)中的Gemini网关改善体验）*
+*Gemini 4 Argon真好呀，可惜甲太厚了🥲（可使用[推荐工具](#推荐工具)中的Gemini网关改善体验）*
 
 * [1.28版](https://github.com/fatsnk/forksilly.doc/releases)的readme看这里：
 [![简体中文](https://img.shields.io/badge/文档-简体中文-blue.svg)](./README.zh-CN.md)
